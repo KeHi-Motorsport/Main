@@ -2,107 +2,182 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>KeHi Motorsport | Czech MotoGymkhana</title>
 
     <meta name="description"
-        content="KeHi Motorsport is a Czech motorcycle racing team. Matěj Kerl and Honza Hingar compete in MotoGymkhana.">
+        content="KeHi Motorsport is a Czech motorcycle racing team founded by classmates Matěj Kerl and Jan Hingar. Matěj Kerl competes in MotoGymkhana.">
+
+    <meta name="keywords"
+        content="KeHi Motorsport, Matěj Kerl, Jan Hingar, Honza Hingar, MotoGymkhana, Czech motorcycle racing, IMR Corsa 190RR">
+
+    <meta name="author" content="KeHi Motorsport">
+
+    <!--
+        BASIC STRUCTURED DATA
+        Helps search engines understand who KeHi Motorsport is.
+    -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsTeam",
+        "name": "KeHi Motorsport",
+        "sport": "Motorcycle racing",
+        "description": "Czech motorcycle racing team competing in MotoGymkhana.",
+        "member": [
+            {
+                "@type": "Person",
+                "name": "Matěj Kerl",
+                "jobTitle": "MotoGymkhana Rider"
+            },
+            {
+                "@type": "Person",
+                "name": "Jan Hingar",
+                "alternateName": "Honza Hingar",
+                "jobTitle": "Team Principal"
+            }
+        ]
+    }
+    </script>
+
 
     <style>
 
-        /* =========================
-           GENERAL
-        ========================= */
+        /* =====================================================
+           RESET
+        ===================================================== */
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #0a0a0a;
+
+            background: #080808;
             color: #ffffff;
+
             line-height: 1.6;
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
 
-        /* =========================
+        /* =====================================================
            HEADER
-        ========================= */
+        ===================================================== */
 
         .site-header {
+
             position: sticky;
             top: 0;
+
             z-index: 1000;
 
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(8, 8, 8, 0.96);
+
             border-bottom: 2px solid #e10600;
+
+            backdrop-filter: blur(10px);
         }
 
+
         .header-container {
-            max-width: 1200px;
+
+            max-width: 1250px;
+
             margin: auto;
-            padding: 18px 30px;
+
+            padding: 17px 25px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             gap: 30px;
         }
 
-        /* Team name */
+
+        /* LOGO */
 
         .logo {
+
             font-size: 27px;
-            font-weight: 900;
+
+            font-weight: 950;
+
             letter-spacing: 2px;
+
             white-space: nowrap;
         }
+
 
         .logo-kehi {
             color: #ffffff;
         }
 
+
         .logo-motorsport {
             color: #e10600;
         }
 
-        /* Navigation */
+
+        /* NAVIGATION */
 
         .navigation {
+
             display: flex;
+
             align-items: center;
-            gap: 30px;
+
+            gap: 27px;
         }
 
+
         .navigation a {
+
             position: relative;
 
             color: #ffffff;
-            font-size: 14px;
-            font-weight: 700;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
             letter-spacing: 1px;
 
-            transition: color 0.2s ease;
+            transition: 0.2s;
         }
 
+
+        .navigation a:hover {
+
+            color: #e10600;
+        }
+
+
         .navigation a::after {
+
             content: "";
 
             position: absolute;
+
             left: 0;
             bottom: -7px;
 
@@ -111,258 +186,1046 @@
 
             background: #e10600;
 
-            transition: width 0.2s ease;
+            transition: 0.2s;
         }
 
-        .navigation a:hover {
-            color: #e10600;
-        }
 
         .navigation a:hover::after {
+
             width: 100%;
         }
 
 
-        /* =========================
+        /* =====================================================
            HERO
-        ========================= */
+        ===================================================== */
 
         .hero {
-            min-height: 75vh;
+
+            min-height: 82vh;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             text-align: center;
 
-            padding: 80px 20px;
+            padding: 100px 25px;
+
+            position: relative;
+
+            overflow: hidden;
 
             background:
                 linear-gradient(
-                    rgba(0, 0, 0, 0.55),
-                    rgba(0, 0, 0, 0.9)
+                    135deg,
+                    #080808 0%,
+                    #151515 50%,
+                    #080808 100%
                 );
         }
 
+
+        /* Decorative red diagonal */
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            background: #e10600;
+
+            opacity: 0.05;
+
+            transform: rotate(25deg);
+
+            right: -250px;
+            top: -200px;
+        }
+
+
         .hero-content {
-            max-width: 900px;
+
+            max-width: 950px;
+
+            position: relative;
+
+            z-index: 2;
         }
 
-        .hero h1 {
-            font-size: clamp(48px, 9vw, 100px);
-            font-weight: 900;
-            letter-spacing: 5px;
-            line-height: 1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #e10600;
-        }
-
-        .hero p {
-            font-size: 20px;
-            color: #cccccc;
-            max-width: 700px;
-            margin: auto;
-        }
 
         .hero-tag {
+
             display: inline-block;
 
-            margin-bottom: 20px;
-            padding: 6px 14px;
+            padding: 7px 16px;
+
+            margin-bottom: 25px;
 
             border: 1px solid #e10600;
+
             color: #e10600;
 
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
         }
 
 
-        /* =========================
-           SECTIONS
-        ========================= */
+        .hero h1 {
+
+            font-size: clamp(48px, 9vw, 105px);
+
+            font-weight: 950;
+
+            line-height: 0.95;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 28px;
+        }
+
+
+        .hero h1 span {
+
+            color: #e10600;
+        }
+
+
+        .hero p {
+
+            max-width: 720px;
+
+            margin: auto;
+
+            color: #c5c5c5;
+
+            font-size: 20px;
+        }
+
+
+        .hero-buttons {
+
+            margin-top: 35px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .button {
+
+            display: inline-block;
+
+            padding: 13px 24px;
+
+            font-size: 13px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            border: 1px solid #e10600;
+
+            transition: 0.2s;
+        }
+
+
+        .button-primary {
+
+            background: #e10600;
+
+            color: white;
+        }
+
+
+        .button-primary:hover {
+
+            background: white;
+
+            color: black;
+
+            border-color: white;
+        }
+
+
+        .button-secondary {
+
+            color: white;
+
+            background: transparent;
+        }
+
+
+        .button-secondary:hover {
+
+            background: white;
+
+            color: black;
+
+            border-color: white;
+        }
+
+
+        /* =====================================================
+           GENERAL SECTIONS
+        ===================================================== */
 
         section {
+
             max-width: 1200px;
+
             margin: auto;
-            padding: 90px 30px;
+
+            padding: 95px 25px;
         }
+
 
         .section-title {
-            font-size: 38px;
-            font-weight: 900;
-            margin-bottom: 40px;
 
-            border-left: 5px solid #e10600;
-            padding-left: 15px;
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            font-size: 39px;
+
+            font-weight: 950;
+
+            margin-bottom: 45px;
         }
 
 
-        /* =========================
-           RIDERS
-        ========================= */
+        .section-title::before {
 
-        .riders {
+            content: "";
+
+            width: 5px;
+
+            height: 42px;
+
+            background: #e10600;
+
+            display: block;
+        }
+
+
+        .section-subtitle {
+
+            color: #888888;
+
+            margin-top: -30px;
+
+            margin-bottom: 35px;
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           TEAM / RIDERS
+        ===================================================== */
+
+        .team-grid {
+
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+
+            gap: 25px;
         }
 
-        .rider-card {
+
+        .person-card {
+
             background: #151515;
+
+            border: 1px solid #292929;
+
+            padding: 38px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: 0.25s;
+        }
+
+
+        .person-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            right: -60px;
+            bottom: -60px;
+
+            width: 160px;
+            height: 160px;
+
+            border: 2px solid #e10600;
+
+            transform: rotate(45deg);
+
+            opacity: 0.15;
+        }
+
+
+        .person-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: #e10600;
+        }
+
+
+        .person-role {
+
+            color: #e10600;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .person-card h3 {
+
+            font-size: 31px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .person-card p {
+
+            color: #bdbdbd;
+
+            font-size: 16px;
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about-section {
+
+            max-width: none;
+
+            background: #101010;
+        }
+
+
+        .about-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 0 25px;
+        }
+
+
+        .about-container p {
+
+            max-width: 850px;
+
+            color: #c5c5c5;
+
+            font-size: 18px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .highlight {
+
+            color: #e10600;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           BIKES
+        ===================================================== */
+
+        .bikes-section {
+
+            background: #080808;
+        }
+
+
+        .bike-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .bike-card {
+
+            background: #151515;
+
+            border: 1px solid #292929;
+
+            padding: 38px;
+
+            transition: 0.25s;
+        }
+
+
+        .bike-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: #e10600;
+        }
+
+
+        .bike-category {
+
+            color: #e10600;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .bike-card h3 {
+
+            font-size: 30px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .bike-card p {
+
+            color: #bdbdbd;
+
+            margin-bottom: 20px;
+        }
+
+
+        .bike-specs {
+
+            border-top: 1px solid #292929;
+
+            padding-top: 18px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+        }
+
+
+        .spec {
+
+            background: #0e0e0e;
+
+            padding: 12px;
+        }
+
+
+        .spec-label {
+
+            color: #777777;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .spec-value {
+
+            font-weight: 900;
+
+            margin-top: 3px;
+        }
+
+
+        /* =====================================================
+           RESULTS
+        ===================================================== */
+
+        .results-section {
+
+            background: #101010;
+
+            max-width: none;
+        }
+
+
+        .results-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 0 25px;
+        }
+
+
+        .result-card {
+
+            background: #151515;
+
             border: 1px solid #292929;
 
             padding: 35px;
 
-            transition:
-                transform 0.2s ease,
-                border-color 0.2s ease;
+            margin-bottom: 25px;
+
+            transition: 0.2s;
         }
 
-        .rider-card:hover {
-            transform: translateY(-5px);
+
+        .result-card:hover {
+
             border-color: #e10600;
         }
 
-        .rider-number {
+
+        .result-top {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .result-year {
+
             color: #e10600;
-            font-size: 14px;
+
+            font-size: 12px;
+
             font-weight: 900;
+
             letter-spacing: 2px;
-
-            margin-bottom: 10px;
-        }
-
-        .rider-card h3 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-
-        .rider-card p {
-            color: #bdbdbd;
         }
 
 
-        /* =========================
-           ABOUT
-        ========================= */
+        .result-card h3 {
 
-        .about {
-            background: #101010;
-            max-width: none;
+            font-size: 28px;
+
+            margin-top: 7px;
         }
 
-        .about-content {
-            max-width: 1200px;
+
+        .result-time {
+
+            font-size: 42px;
+
+            font-weight: 950;
+
+            white-space: nowrap;
+        }
+
+
+        .result-info {
+
+            color: #999999;
+
+            margin-top: 3px;
+        }
+
+
+        /* Leaderboard image */
+
+        .leaderboard-image {
+
+            margin-top: 25px;
+
+            background: #0b0b0b;
+
+            border: 1px solid #292929;
+
+            padding: 10px;
+
+            text-align: center;
+        }
+
+
+        .leaderboard-image img {
+
+            max-width: 100%;
+
+            height: auto;
+
+            display: block;
+
             margin: auto;
-            padding: 0 30px;
-        }
-
-        .about p {
-            max-width: 800px;
-            color: #c5c5c5;
-            font-size: 18px;
-        }
-
-        .team-name {
-            color: #e10600;
-            font-weight: 800;
         }
 
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* =====================================================
+           SPONSOR BANNER
+        ===================================================== */
 
-        footer {
-            border-top: 1px solid #292929;
+        .sponsor-banner {
+
+            position: fixed;
+
+            right: 20px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 205px;
+
+            padding: 25px 20px;
+
+            background: #151515;
+
+            border: 2px solid #e10600;
+
+            z-index: 950;
 
             text-align: center;
 
-            padding: 30px 20px;
-
-            color: #777777;
-            font-size: 14px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.6);
         }
 
 
-        /* =========================
-           MOBILE
-        ========================= */
+        .sponsor-label {
 
-        @media (max-width: 700px) {
+            color: #e10600;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 9px;
+        }
+
+
+        .sponsor-banner h3 {
+
+            font-size: 21px;
+
+            line-height: 1.15;
+
+            margin-bottom: 13px;
+        }
+
+
+        .sponsor-banner p {
+
+            color: #a9a9a9;
+
+            font-size: 13px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .sponsor-button {
+
+            display: block;
+
+            padding: 11px;
+
+            background: #e10600;
+
+            color: white;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            transition: 0.2s;
+        }
+
+
+        .sponsor-button:hover {
+
+            background: white;
+
+            color: black;
+        }
+
+
+        /* =====================================================
+           SPONSORS SECTION
+        ===================================================== */
+
+        .sponsors-section {
+
+            background: #080808;
+        }
+
+
+        .sponsor-box {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #151515,
+                    #0d0d0d
+                );
+
+            border: 1px solid #292929;
+
+            padding: 50px;
+
+            text-align: center;
+        }
+
+
+        .sponsor-box h3 {
+
+            font-size: 36px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .sponsor-box h3 span {
+
+            color: #e10600;
+        }
+
+
+        .sponsor-box p {
+
+            max-width: 700px;
+
+            margin: auto auto 25px;
+
+            color: #aaaaaa;
+
+            font-size: 17px;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact-section {
+
+            background: #101010;
+
+            max-width: none;
+        }
+
+
+        .contact-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 0 25px;
+        }
+
+
+        .contact-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+
+        .contact-card {
+
+            background: #151515;
+
+            border: 1px solid #292929;
+
+            padding: 35px;
+        }
+
+
+        .contact-card h3 {
+
+            font-size: 27px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .contact-card p {
+
+            color: #aaaaaa;
+
+            margin-bottom: 22px;
+        }
+
+
+        .contact-link {
+
+            display: inline-block;
+
+            padding: 12px 20px;
+
+            background: #e10600;
+
+            font-weight: 900;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            transition: 0.2s;
+        }
+
+
+        .contact-link:hover {
+
+            background: white;
+
+            color: black;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            border-top: 1px solid #292929;
+
+            background: #070707;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            color: #666666;
+
+            font-size: 13px;
+        }
+
+
+        footer strong {
+
+            color: #e10600;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 1100px) {
+
+            .sponsor-banner {
+
+                position: static;
+
+                transform: none;
+
+                width: auto;
+
+                max-width: 500px;
+
+                margin: 35px auto;
+
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
 
             .header-container {
+
                 flex-direction: column;
-                padding: 15px 20px;
+
                 gap: 12px;
+
+                padding: 14px 15px;
             }
+
 
             .logo {
-                font-size: 23px;
+
+                font-size: 22px;
             }
+
 
             .navigation {
-                gap: 16px;
-                flex-wrap: wrap;
+
+                gap: 13px;
+
                 justify-content: center;
+
+                flex-wrap: wrap;
             }
+
 
             .navigation a {
-                font-size: 12px;
+
+                font-size: 10px;
             }
+
 
             .hero {
-                min-height: 65vh;
-                padding: 60px 20px;
-            }
 
-            .hero p {
-                font-size: 17px;
-            }
+                min-height: 70vh;
 
-            section {
                 padding: 70px 20px;
             }
 
-            .riders {
+
+            .hero h1 {
+
+                letter-spacing: 2px;
+            }
+
+
+            .hero p {
+
+                font-size: 17px;
+            }
+
+
+            section {
+
+                padding: 70px 20px;
+            }
+
+
+            .section-title {
+
+                font-size: 30px;
+            }
+
+
+            .team-grid,
+            .bike-grid,
+            .contact-grid {
+
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 30px;
+
+            .bike-specs {
+
+                grid-template-columns: 1fr 1fr;
             }
+
+
+            .result-top {
+
+                flex-direction: column;
+            }
+
+
+            .result-time {
+
+                font-size: 34px;
+            }
+
+
+            .sponsor-box {
+
+                padding: 35px 25px;
+            }
+
+
+            .sponsor-box h3 {
+
+                font-size: 28px;
+            }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-    <!-- =========================
+    <!-- =====================================================
          HEADER
-    ========================= -->
+    ===================================================== -->
 
     <header class="site-header">
 
         <div class="header-container">
 
             <a href="#home" class="logo">
-                <span class="logo-kehi">KEHI</span>
-                <span class="logo-motorsport">MOTORSPORT</span>
+
+                <span class="logo-kehi">
+                    KEHI
+                </span>
+
+                <span class="logo-motorsport">
+                    MOTORSPORT
+                </span>
+
             </a>
 
+
             <nav class="navigation">
+
                 <a href="#home">HOME</a>
-                <a href="#riders">RIDERS</a>
-                <a href="#about">ABOUT</a>
+
+                <a href="#team">TEAM</a>
+
+                <a href="#bikes">BIKES</a>
+
+                <a href="#results">RESULTS</a>
+
+                <a href="#sponsors">SPONSORS</a>
+
+                <a href="#contact">CONTACT</a>
+
             </nav>
 
         </div>
@@ -371,9 +1234,9 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          HERO
-    ========================= -->
+    ===================================================== -->
 
     <main>
 
@@ -385,14 +1248,30 @@
                     CZECH MOTORCYCLE RACING
                 </div>
 
+
                 <h1>
                     KEHI <span>MOTORSPORT</span>
                 </h1>
 
+
                 <p>
-                    Czech motorcycle racing team competing in
-                    MotoGymkhana and motorcycle motorsport.
+                    Czech motorcycle racing team founded by two
+                    classmates, competing in MotoGymkhana and
+                    developing our own racing projects.
                 </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#results" class="button button-primary">
+                        VIEW RESULTS
+                    </a>
+
+                    <a href="#sponsors" class="button button-secondary">
+                        PARTNER WITH US
+                    </a>
+
+                </div>
 
             </div>
 
@@ -400,48 +1279,70 @@
 
 
 
-        <!-- =========================
-             RIDERS
-        ========================= -->
+        <!-- =================================================
+             TEAM
+        ================================================= -->
 
-        <section id="riders">
+        <section id="team">
 
             <h2 class="section-title">
-                RIDERS
+                TEAM
             </h2>
 
-            <div class="riders">
 
-                <article class="rider-card">
+            <p class="section-subtitle">
+                Two classmates building and competing with KeHi Motorsport.
+            </p>
 
-                    <div class="rider-number">
-                        RIDER 01
+
+            <div class="team-grid">
+
+
+                <!-- MATĚJ -->
+
+                <article class="person-card">
+
+                    <div class="person-role">
+                        MOTOGYMKHANA RIDER
                     </div>
+
 
                     <h3>
                         Matěj Kerl
                     </h3>
 
+
                     <p>
-                        Czech MotoGymkhana rider and member of
-                        KeHi Motorsport.
+                        Czech MotoGymkhana rider and co-founder
+                        of KeHi Motorsport. Matěj represents the
+                        team in competition and focuses on riding,
+                        race preparation and development of the
+                        team's race machines.
                     </p>
 
                 </article>
 
 
-                <article class="rider-card">
 
-                    <div class="rider-number">
-                        RIDER 02
+                <!-- HONZA -->
+
+                <article class="person-card">
+
+                    <div class="person-role">
+                        TEAM PRINCIPAL
                     </div>
 
+
                     <h3>
-                        Honza Hingar
+                        Jan “Honza” Hingar
                     </h3>
 
+
                     <p>
-                       Team principal of KeHi Motorsport.
+                        Team Principal and co-founder of KeHi
+                        Motorsport. Honza is Matěj's classmate
+                        and works alongside him on team management,
+                        preparation, racing projects and development.
                     </p>
 
                 </article>
@@ -452,32 +1353,508 @@
 
 
 
-        <!-- =========================
+        <!-- =================================================
              ABOUT
-        ========================= -->
+        ================================================= -->
 
-        <section class="about" id="about">
+        <section class="about-section" id="about">
 
-            <div class="about-content">
+            <div class="about-container">
 
                 <h2 class="section-title">
                     ABOUT KEHI
                 </h2>
 
-                <p>
-                    <span class="team-name">KeHi Motorsport</span>
-                    is a Czech motorcycle racing team created by
-                    Matěj Kerl and Honza Hingar.
-                </p>
-
-                <br>
 
                 <p>
-                    The name <strong>KeHi</strong> combines
-                    <strong>Kerl</strong> and
-                    <strong>Hingar</strong>, representing the two
-                    friends behind the team.
+                    <span class="highlight">
+                        KeHi Motorsport
+                    </span>
+                    is a Czech motorcycle racing team founded by
+                    classmates <strong>Matěj Kerl</strong> and
+                    <strong>Jan “Honza” Hingar</strong>.
                 </p>
+
+
+                <p>
+                    The name <strong>KeHi</strong> combines the
+                    surnames <strong>Kerl</strong> and
+                    <strong>Hingar</strong>.
+                </p>
+
+
+                <p>
+                    The team focuses on motorcycle racing,
+                    MotoGymkhana, race-bike development and
+                    building practical technical projects around
+                    motorsport.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BIKES
+        ================================================= -->
+
+        <section class="bikes-section" id="bikes">
+
+            <h2 class="section-title">
+                BIKES
+            </h2>
+
+
+            <p class="section-subtitle">
+                Machines currently connected to KeHi Motorsport.
+            </p>
+
+
+            <div class="bike-grid">
+
+
+                <!-- IMR -->
+
+                <article class="bike-card">
+
+                    <div class="bike-category">
+                        CURRENT RACE BIKE
+                    </div>
+
+
+                    <h3>
+                        IMR Corsa 190RR
+                    </h3>
+
+
+                    <p>
+                        KeHi Motorsport's current MotoGymkhana
+                        race machine. A lightweight 190 cc pitbike
+                        used for tight technical courses,
+                        training and competition.
+                    </p>
+
+
+                    <div class="bike-specs">
+
+                        <div class="spec">
+
+                            <div class="spec-label">
+                                Engine
+                            </div>
+
+                            <div class="spec-value">
+                                190 cc
+                            </div>
+
+                        </div>
+
+
+                        <div class="spec">
+
+                            <div class="spec-label">
+                                Category
+                            </div>
+
+                            <div class="spec-value">
+                                Race / Gymkhana
+                            </div>
+
+                        </div>
+
+
+                        <div class="spec">
+
+                            <div class="spec-label">
+                                Type
+                            </div>
+
+                            <div class="spec-value">
+                                Pitbike
+                            </div>
+
+                        </div>
+
+
+                        <div class="spec">
+
+                            <div class="spec-label">
+                                Rider
+                            </div>
+
+                            <div class="spec-value">
+                                Matěj Kerl
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FUTURE BIKE -->
+
+                <article class="bike-card">
+
+                    <div class="bike-category">
+                        FUTURE PROJECTS
+                    </div>
+
+
+                    <h3>
+                        Garage
+                    </h3>
+
+
+                    <p>
+                        New race bikes and technical projects will
+                        be added here as KeHi Motorsport continues
+                        to develop.
+                    </p>
+
+
+                    <div class="bike-specs">
+
+                        <div class="spec">
+
+                            <div class="spec-label">
+                                Status
+                            </div>
+
+                            <div class="spec-value">
+                                Developing
+                            </div>
+
+                        </div>
+
+
+                        <div class="spec">
+
+                            <div class="spec-label">
+                                Focus
+                            </div>
+
+                            <div class="spec-value">
+                                Racing
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RESULTS
+        ================================================= -->
+
+        <section class="results-section" id="results">
+
+            <div class="results-container">
+
+                <h2 class="section-title">
+                    RESULTS
+                </h2>
+
+
+                <p class="section-subtitle">
+                    Selected KeHi Motorsport competition results.
+                </p>
+
+
+
+                <!-- GP8 -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div>
+
+                            <div class="result-year">
+                                2026
+                            </div>
+
+
+                            <h3>
+                                MotoGymkhana GP8
+                            </h3>
+
+
+                            <div class="result-info">
+                                Matěj Kerl — KeHi Motorsport
+                            </div>
+
+                        </div>
+
+
+                        <div class="result-time">
+                            30.3 s
+                        </div>
+
+                    </div>
+
+
+                    <!--
+                        WHEN YOU HAVE THE SCREENSHOT:
+
+                        Create:
+                        images/gp8-30-3.jpg
+
+                        Then this image will automatically appear.
+                    -->
+
+                    <div class="leaderboard-image">
+
+                        <img
+                            src="images/gp8-30-3.jpg"
+                            alt="MotoGymkhana GP8 leaderboard showing Matěj Kerl with a time of 30.3 seconds"
+                            onerror="this.parentElement.style.display='none';"
+                        >
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MONTHLY -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div>
+
+                            <div class="result-year">
+                                2026
+                            </div>
+
+
+                            <h3>
+                                Monthly MotoGym Fun Round
+                            </h3>
+
+
+                            <div class="result-info">
+                                Matěj Kerl — KeHi Motorsport
+                            </div>
+
+                        </div>
+
+
+                        <div class="result-time">
+                            2nd
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-info">
+
+                        Best submitted time:
+                        <strong>54.4 s</strong>
+
+                    </div>
+
+
+                    <!--
+                        WHEN YOU HAVE THE SCREENSHOT:
+
+                        Create:
+                        images/monthly-54-4.jpg
+                    -->
+
+                    <div class="leaderboard-image">
+
+                        <img
+                            src="images/monthly-54-4.jpg"
+                            alt="MotoGymkhana leaderboard showing Matěj Kerl in second place with a time of 54.4 seconds"
+                            onerror="this.parentElement.style.display='none';"
+                        >
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SPONSORS
+        ================================================= -->
+
+        <section class="sponsors-section" id="sponsors">
+
+            <h2 class="section-title">
+                SPONSORS
+            </h2>
+
+
+            <div class="sponsor-box">
+
+                <h3>
+                    LOOKING FOR <span>SPONSORS</span>
+                </h3>
+
+
+                <p>
+                    KeHi Motorsport is looking for sponsors and
+                    partners interested in supporting a growing
+                    Czech motorcycle racing team.
+                </p>
+
+
+                <p>
+                    We are open to partnerships involving
+                    equipment, technical products, services,
+                    financial support and other forms of
+                    motorsport cooperation.
+                </p>
+
+
+                <a
+                    href="#contact"
+                    class="button button-primary"
+                >
+                    BECOME A PARTNER
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SIDE SPONSOR BANNER
+        ================================================= -->
+
+        <div class="sponsor-banner">
+
+            <div class="sponsor-label">
+                PARTNERSHIP
+            </div>
+
+
+            <h3>
+                LOOKING FOR<br>
+                SPONSORS
+            </h3>
+
+
+            <p>
+                Support a growing Czech motorcycle racing team.
+            </p>
+
+
+            <a
+                href="#contact"
+                class="sponsor-button"
+            >
+                GET IN TOUCH
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CONTACT
+        ================================================= -->
+
+        <section class="contact-section" id="contact">
+
+            <div class="contact-container">
+
+                <h2 class="section-title">
+                    CONTACT
+                </h2>
+
+
+                <div class="contact-grid">
+
+
+                    <!-- SPONSORS -->
+
+                    <div class="contact-card">
+
+                        <h3>
+                            Sponsorship & Partnerships
+                        </h3>
+
+
+                        <p>
+                            Interested in supporting KeHi
+                            Motorsport or working with the team?
+                            Contact us regarding sponsorships,
+                            products, equipment or partnerships.
+                        </p>
+
+
+                        <!--
+                            CHANGE THIS EMAIL
+
+                            Replace:
+                            YOUR-EMAIL@example.com
+
+                            with your real team email.
+                        -->
+
+                        <a
+                            href="mailto:YOUR-EMAIL@example.com"
+                            class="contact-link"
+                        >
+                            CONTACT US
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- SOCIAL -->
+
+                    <div class="contact-card">
+
+                        <h3>
+                            Social Media
+                        </h3>
+
+
+                        <p>
+                            Follow KeHi Motorsport and keep up
+                            with our racing, training and
+                            technical projects.
+                        </p>
+
+
+                        <!--
+                            Replace the # with your Instagram URL.
+                        -->
+
+                        <a
+                            href="#"
+                            class="contact-link"
+                        >
+                            INSTAGRAM
+                        </a>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -487,16 +1864,24 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================= -->
+    ===================================================== -->
 
     <footer>
 
-        © 2026 KeHi Motorsport
+        <p>
+            © 2026 <strong>KeHi Motorsport</strong>
+        </p>
+
+        <p>
+            Czech motorcycle racing team · MotoGymkhana
+        </p>
 
     </footer>
 
 
+
 </body>
+
 </html>
