@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KeHi Motorsport | Results</title>
+
+    <meta
+        name="description"
+        content="Competition results of Czech MotoGymkhana rider Matěj Kerl and KeHi Motorsport."
+    >
+
+    <meta
+        name="keywords"
+        content="Matěj Kerl results, KeHi Motorsport results, MotoGymkhana results, Czech MotoGymkhana"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+
+                <span class="logo-kehi">
+                    KEHI
+                </span>
+
+                <span class="logo-motorsport">
+                    MOTORSPORT
+                </span>
+
+            </a>
+
+
+            <nav class="navigation">
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+                <a href="index.html#team">
+                    TEAM
+                </a>
+
+                <a href="bikes.html">
+                    BIKES
+                </a>
+
+                <a href="results.html">
+                    RESULTS
+                </a>
+
+                <a href="index.html#sponsors">
+                    SPONSORS
+                </a>
+
+                <a href="index.html#contact">
+                    CONTACT
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- PAGE HERO -->
+
+    <section class="page-hero">
+
+        <div>
+
+            <div class="hero-tag">
+                KEHI MOTORSPORT
+            </div>
+
+
+            <h1>
+                RACE
+                <span>RESULTS</span>
+            </h1>
+
+
+            <p>
+                Competition results and recorded times
+                from KeHi Motorsport.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <main>
+
+
+        <!-- 2026 -->
+
+        <section class="results-page-section">
+
+            <h2 class="section-title">
+                2026
+            </h2>
+
+
+            <!-- GP8 -->
+
+            <article class="result-card">
+
+
+                <div class="result-top">
+
+                    <div>
+
+                        <div class="result-year">
+                            2026
+                        </div>
+
+
+                        <h3>
+                            MotoGymkhana GP8
+                        </h3>
+
+
+                        <div class="result-info">
+                            Matěj Kerl — KeHi Motorsport
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-time">
+                        30.3 s
+                    </div>
+
+                </div>
+
+
+                <div class="result-details">
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            RIDER
+                        </span>
+
+                        <strong>
+                            Matěj Kerl
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            TEAM
+                        </span>
+
+                        <strong>
+                            KeHi Motorsport
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            TIME
+                        </span>
+
+                        <strong>
+                            30.3 s
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            BIKE
+                        </span>
+
+                        <strong>
+                            IMR Corsa 190RR
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="leaderboard-image">
+
+                    <img
+                        src="images/gp8-30-3.jpg"
+                        alt="MotoGymkhana GP8 leaderboard showing Matěj Kerl with a time of 30.3 seconds"
+                        onerror="this.parentElement.style.display='none';"
+                    >
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- MONTHLY -->
+
+            <article class="result-card">
+
+
+                <div class="result-top">
+
+                    <div>
+
+                        <div class="result-year">
+                            2026
+                        </div>
+
+
+                        <h3>
+                            Monthly MotoGym Fun Round
+                        </h3>
+
+
+                        <div class="result-info">
+                            Matěj Kerl — KeHi Motorsport
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-time">
+                        2nd
+                    </div>
+
+                </div>
+
+
+                <div class="result-details">
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            RIDER
+                        </span>
+
+                        <strong>
+                            Matěj Kerl
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            POSITION
+                        </span>
+
+                        <strong>
+                            2nd
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            BEST TIME
+                        </span>
+
+                        <strong>
+                            54.4 s
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            TEAM
+                        </span>
+
+                        <strong>
+                            KeHi Motorsport
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="leaderboard-image">
+
+                    <img
+                        src="images/monthly-54-4.jpg"
+                        alt="MotoGymkhana leaderboard showing Matěj Kerl in second place with a time of 54.4 seconds"
+                        onerror="this.parentElement.style.display='none';"
+                    >
+
+                </div>
+
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- ADD NEW RESULTS -->
+
+        <section class="future-results-section">
+
+            <div class="future-results-box">
+
+                <div class="future-results-label">
+                    MORE TO COME
+                </div>
+
+
+                <h2>
+                    THE NEXT RESULT
+                    <span>GOES HERE.</span>
+                </h2>
+
+
+                <p>
+
+                    New competition results, race times,
+                    positions and leaderboard screenshots
+                    will be added to this page as KeHi
+                    Motorsport continues racing.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+
+            © 2026
+            <strong>
+                KeHi Motorsport
+            </strong>
+
+        </p>
+
+
+        <p>
+            Czech motorcycle racing team · MotoGymkhana
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
