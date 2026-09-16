@@ -5,234 +5,755 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>KeHi Motorsport | Matěj Kerl</title>
-    <meta name="description"
-          content="KeHi Motorsport — Czech motorcycle racing team. Matěj Kerl competing in MotoGymkhana with an IMR Corsa 190RR.">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            background: #080808;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .home-header {
+            width: 100%;
+            height: 76px;
+            border-bottom: 1px solid #252525;
+            background: #080808;
+        }
+
+        .home-header-inner {
+            width: 90%;
+            max-width: 1400px;
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .home-logo {
+            display: flex;
+            align-items: baseline;
+            gap: 9px;
+
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .home-logo span {
+            color: #e10600;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .home-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .home-nav a {
+            position: relative;
+
+            color: #888;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            padding: 31px 0;
+        }
+
+        .home-nav a:hover,
+        .home-nav a.current {
+            color: #ffffff;
+        }
+
+        .home-nav a.current::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 3px;
+            background: #e10600;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .home-hero {
+            width: 90%;
+            max-width: 1400px;
+            min-height: calc(100vh - 76px);
+
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            align-items: center;
+
+            gap: 80px;
+
+            position: relative;
+        }
+
+        .home-hero::before {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            top: 15%;
+
+            width: 4px;
+            height: 70%;
+
+            background: #e10600;
+        }
+
+        .home-hero-content {
+            padding-left: 65px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .home-label {
+            color: #e10600;
+
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+
+            margin-bottom: 28px;
+        }
+
+        .home-title {
+            font-size: clamp(80px, 12vw, 170px);
+            line-height: 0.78;
+            letter-spacing: -9px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .home-title .red {
+            display: block;
+            color: #e10600;
+        }
+
+        .home-rule {
+            width: 90px;
+            height: 4px;
+
+            background: #e10600;
+
+            margin: 38px 0 28px;
+        }
+
+        .home-description {
+            max-width: 500px;
+
+            color: #999;
+
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .home-description strong {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .home-buttons {
+            display: flex;
+            gap: 14px;
+
+            margin-top: 35px;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 48px;
+            padding: 0 25px;
+
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .home-button-red {
+            background: #e10600;
+        }
+
+        .home-button-red:hover {
+            background: #b80500;
+        }
+
+        .home-button-outline {
+            border: 1px solid #3a3a3a;
+        }
+
+        .home-button-outline:hover {
+            border-color: #e10600;
+        }
+
+
+        /* =========================
+           RIGHT SIDE
+        ========================= */
+
+        .home-data {
+            border-left: 1px solid #292929;
+            padding-left: 40px;
+        }
+
+        .home-data-block {
+            padding: 28px 0;
+            border-bottom: 1px solid #292929;
+        }
+
+        .home-data-block:first-child {
+            padding-top: 0;
+        }
+
+        .home-data-block:last-child {
+            border-bottom: 0;
+        }
+
+        .home-data-label {
+            display: block;
+
+            color: #666;
+
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .home-data-value {
+            display: block;
+
+            color: #ffffff;
+
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .home-data-value.red {
+            color: #e10600;
+        }
+
+        .home-data-note {
+            display: block;
+
+            color: #555;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+
+            margin-top: 6px;
+        }
+
+
+        /* =========================
+           BOTTOM LINKS
+        ========================= */
+
+        .home-links {
+            width: 100%;
+
+            border-top: 1px solid #252525;
+            border-bottom: 1px solid #252525;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .home-link {
+            min-height: 115px;
+
+            padding: 25px 7%;
+
+            display: flex;
+            align-items: center;
+
+            border-right: 1px solid #252525;
+
+            background: #0a0a0a;
+
+            transition: background 0.2s ease;
+        }
+
+        .home-link:last-child {
+            border-right: 0;
+        }
+
+        .home-link:hover {
+            background: #111111;
+        }
+
+        .home-link-number {
+            color: #e10600;
+
+            font-size: 10px;
+            font-weight: 900;
+
+            margin-right: 20px;
+        }
+
+        .home-link-text {
+            flex: 1;
+        }
+
+        .home-link-text small {
+            display: block;
+
+            color: #666;
+
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            margin-bottom: 5px;
+        }
+
+        .home-link-text strong {
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .home-link-arrow {
+            color: #e10600;
+            font-size: 22px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .home-footer {
+            width: 90%;
+            max-width: 1400px;
+
+            min-height: 75px;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            color: #555;
+
+            font-size: 10px;
+        }
+
+        .home-footer strong {
+            color: #888;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .home-header {
+                height: auto;
+            }
+
+            .home-header-inner {
+                min-height: 76px;
+                flex-direction: column;
+                justify-content: center;
+                gap: 15px;
+
+                padding: 15px 0;
+            }
+
+            .home-nav {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .home-nav a {
+                padding: 0;
+            }
+
+            .home-nav a.current::after {
+                display: none;
+            }
+
+            .home-hero {
+                min-height: auto;
+
+                grid-template-columns: 1fr;
+
+                gap: 60px;
+
+                padding: 90px 0;
+            }
+
+            .home-hero-content {
+                padding-left: 45px;
+            }
+
+            .home-data {
+                margin-left: 45px;
+            }
+
+            .home-links {
+                grid-template-columns: 1fr;
+            }
+
+            .home-link {
+                border-right: 0;
+                border-bottom: 1px solid #252525;
+            }
+
+            .home-link:last-child {
+                border-bottom: 0;
+            }
+        }
+
+
+        /* =========================
+           PHONE
+        ========================= */
+
+        @media (max-width: 550px) {
+
+            .home-header-inner {
+                width: 92%;
+            }
+
+            .home-logo {
+                font-size: 21px;
+            }
+
+            .home-nav {
+                gap: 13px;
+            }
+
+            .home-nav a {
+                font-size: 9px;
+            }
+
+            .home-hero {
+                width: 92%;
+                padding: 70px 0;
+            }
+
+            .home-hero-content {
+                padding-left: 30px;
+            }
+
+            .home-title {
+                font-size: 21vw;
+                letter-spacing: -5px;
+            }
+
+            .home-description {
+                font-size: 14px;
+            }
+
+            .home-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .home-button {
+                width: 190px;
+            }
+
+            .home-data {
+                margin-left: 30px;
+                padding-left: 25px;
+            }
+
+            .home-link {
+                padding: 25px;
+            }
+
+            .home-footer {
+                width: 92%;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 7px;
+                padding: 20px 0;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<header class="site-header">
-    <div class="header-inner">
+    <!-- HEADER -->
 
-        <a href="index.html" class="logo">
-            <span>KEHI</span>
-            <small>MOTORSPORT</small>
-        </a>
+    <header class="home-header">
 
-        <nav class="main-nav">
-            <a href="index.html" class="active">Home</a>
-            <a href="matej.html">Matěj</a>
-            <a href="results.html">Results</a>
-            <a href="bike.html">Bike</a>
-            <a href="team.html">Team</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+        <div class="home-header-inner">
 
-    </div>
-</header>
-
-
-<main>
-
-    <!-- ORIGINAL-STYLE HERO -->
-
-    <section class="hero">
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-
-            <p class="eyebrow">
-                KEHI MOTORSPORT
-            </p>
-
-            <h1>
-                MATĚJ
-                <span>KERL</span>
-            </h1>
-
-            <div class="hero-line"></div>
-
-            <p class="hero-text">
-                Czech MotoGymkhana rider<br>
-                racing the <strong>IMR Corsa 190RR</strong>
-            </p>
-
-            <div class="hero-actions">
-
-                <a href="results.html" class="button button-red">
-                    VIEW RESULTS
-                </a>
-
-                <a href="matej.html" class="button button-outline">
-                    MEET THE RIDER
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="hero-number">
-
-            <span>GP8</span>
-
-            <strong>30.8</strong>
-
-            <small>SEC</small>
-
-        </div>
-
-    </section>
-
-
-    <!-- INTRO -->
-
-    <section class="intro-section">
-
-        <div class="intro-heading">
-
-            <p class="eyebrow">WHO WE ARE</p>
-
-            <h2>
-                BUILT AROUND<br>
-                <span>RACING.</span>
-            </h2>
-
-        </div>
-
-        <div class="intro-text">
-
-            <p>
-                KeHi Motorsport is a Czech motorcycle racing team
-                focused on MotoGymkhana and motorcycle competition.
-            </p>
-
-            <p>
-                Matěj Kerl competes on an IMR Corsa 190RR,
-                developing his riding and chasing faster times
-                throughout the season.
-            </p>
-
-            <a href="team.html" class="text-link">
-                ABOUT THE TEAM →
+            <a href="index.html" class="home-logo">
+                KEHI
+                <span>Motorsport</span>
             </a>
 
+            <nav class="home-nav">
+
+                <a href="index.html" class="current">Home</a>
+                <a href="matej.html">Matěj</a>
+                <a href="results.html">Results</a>
+                <a href="bike.html">Bike</a>
+                <a href="team.html">Team</a>
+                <a href="contact.html">Contact</a>
+
+            </nav>
+
         </div>
 
-    </section>
+    </header>
 
 
-    <!-- CURRENT MACHINE -->
+    <!-- MAIN -->
 
-    <section class="bike-feature">
+    <main>
 
-        <div class="bike-feature-info">
+        <section class="home-hero">
 
-            <p class="eyebrow">CURRENT MACHINE</p>
+            <div class="home-hero-content">
 
-            <h2>
-                IMR<br>
-                <span>CORSA 190RR</span>
-            </h2>
+                <p class="home-label">
+                    Czech MotoGymkhana
+                </p>
 
-            <p>
-                The machine currently used by Matěj Kerl
-                for MotoGymkhana competition.
-            </p>
+                <h1 class="home-title">
+                    Matěj
+                    <span class="red">Kerl</span>
+                </h1>
 
-            <a href="bike.html" class="button button-red">
-                VIEW THE BIKE
+                <div class="home-rule"></div>
+
+                <p class="home-description">
+                    Motorcycle racer and MotoGymkhana rider
+                    competing with the
+                    <strong>IMR Corsa 190RR.</strong>
+                </p>
+
+                <div class="home-buttons">
+
+                    <a href="results.html"
+                       class="home-button home-button-red">
+                        View Results
+                    </a>
+
+                    <a href="matej.html"
+                       class="home-button home-button-outline">
+                        Rider Profile
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- DATA -->
+
+            <aside class="home-data">
+
+                <div class="home-data-block">
+
+                    <span class="home-data-label">
+                        GP8 Best Time
+                    </span>
+
+                    <span class="home-data-value red">
+                        30.8 SEC
+                    </span>
+
+                    <span class="home-data-note">
+                        MOTOGYMKHANA GP8 · 2026
+                    </span>
+
+                </div>
+
+
+                <div class="home-data-block">
+
+                    <span class="home-data-label">
+                        Latest Result
+                    </span>
+
+                    <span class="home-data-value">
+                        24TH
+                    </span>
+
+                    <span class="home-data-note">
+                        2026MGYMFUNOLC · ROUND 5
+                    </span>
+
+                </div>
+
+
+                <div class="home-data-block">
+
+                    <span class="home-data-label">
+                        Race Bike
+                    </span>
+
+                    <span class="home-data-value">
+                        IMR CORSA
+                    </span>
+
+                    <span class="home-data-note">
+                        190RR · RACING
+                    </span>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+
+        <!-- LINKS -->
+
+        <section class="home-links">
+
+            <a href="matej.html" class="home-link">
+
+                <span class="home-link-number">
+                    01
+                </span>
+
+                <div class="home-link-text">
+
+                    <small>RIDER</small>
+
+                    <strong>Matěj Kerl</strong>
+
+                </div>
+
+                <span class="home-link-arrow">
+                    →
+                </span>
+
             </a>
 
-        </div>
 
-        <div class="bike-feature-number">
-            <span>190</span>
-            <small>CC</small>
-        </div>
+            <a href="results.html" class="home-link">
 
-    </section>
+                <span class="home-link-number">
+                    02
+                </span>
 
+                <div class="home-link-text">
 
-    <!-- LATEST RESULTS -->
+                    <small>RACING</small>
 
-    <section class="results-feature">
+                    <strong>Results</strong>
 
-        <div class="section-header">
+                </div>
 
-            <div>
-                <p class="eyebrow">2026 SEASON</p>
-                <h2>LATEST RESULTS</h2>
-            </div>
+                <span class="home-link-arrow">
+                    →
+                </span>
 
-            <a href="results.html" class="text-link">
-                ALL RESULTS →
             </a>
 
+
+            <a href="bike.html" class="home-link">
+
+                <span class="home-link-number">
+                    03
+                </span>
+
+                <div class="home-link-text">
+
+                    <small>MACHINE</small>
+
+                    <strong>IMR Corsa 190RR</strong>
+
+                </div>
+
+                <span class="home-link-arrow">
+                    →
+                </span>
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="home-footer">
+
+        <div>
+            <strong>KEHI MOTORSPORT</strong>
+            · Motorcycle Racing · Czech Republic
         </div>
 
-
-        <div class="result-highlight">
-
-            <div>
-                <span>MOTOGYMKHANA GP8</span>
-                <strong>30.8 <small>SEC</small></strong>
-            </div>
-
-            <div>
-                <span>MGYMFUNOLC ROUND 5</span>
-                <strong>24<sup>TH</sup></strong>
-            </div>
-
+        <div>
+            Matěj Kerl · MotoGymkhana
         </div>
 
-    </section>
-
-
-    <!-- BOTTOM NAV -->
-
-    <section class="home-navigation">
-
-        <a href="matej.html">
-            <span>01</span>
-            <strong>MATĚJ KERL</strong>
-            <small>RIDER PROFILE</small>
-            <b>→</b>
-        </a>
-
-        <a href="results.html">
-            <span>02</span>
-            <strong>RESULTS</strong>
-            <small>RACE RESULTS</small>
-            <b>→</b>
-        </a>
-
-        <a href="bike.html">
-            <span>03</span>
-            <strong>IMR CORSA 190RR</strong>
-            <small>RACE BIKE</small>
-            <b>→</b>
-        </a>
-
-    </section>
-
-</main>
-
-
-<footer class="site-footer">
-
-    <div>
-        <strong>KEHI MOTORSPORT</strong>
-        <span>Motorcycle Racing · Czech Republic</span>
-    </div>
-
-    <div>
-        <span>Matěj Kerl · MotoGymkhana</span>
-    </div>
-
-</footer>
+    </footer>
 
 </body>
 </html>
+            
