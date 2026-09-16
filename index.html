@@ -1,619 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Matěj Kerl | KeHi Motorsport</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: #0b0b0b;
-            color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        /* HEADER */
-
-        header {
-            width: 100%;
-            background: #050505;
-            border-bottom: 2px solid #e10600;
-        }
-
-        .header {
-            max-width: 1200px;
-            margin: auto;
-            padding: 22px 30px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .logo {
-            text-decoration: none;
-            font-size: 25px;
-            font-weight: 900;
-            white-space: nowrap;
-        }
-
-        .logo-red {
-            color: #e10600;
-        }
-
-        .navigation {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .navigation a {
-            text-decoration: none;
-            color: #bbbbbb;
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .navigation a:hover {
-            color: #e10600;
-        }
-
-        /* MAIN */
-
-        main {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 520px;
-            padding: 100px 30px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 80px;
-        }
-
-        .hero-left {
-            max-width: 700px;
-        }
-
-        .eyebrow {
-            margin: 0 0 20px;
-            color: #e10600;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: clamp(60px, 10vw, 120px);
-            line-height: 0.85;
-            text-transform: uppercase;
-        }
-
-        .name-white {
-            display: block;
-            color: white;
-        }
-
-        .name-red {
-            display: block;
-            color: #e10600;
-        }
-
-        .hero-text {
-            max-width: 600px;
-            margin: 35px 0;
-
-            color: #999999;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 15px 25px;
-            margin-right: 10px;
-
-            background: #e10600;
-            color: white;
-
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .button:hover {
-            background: #ff1b12;
-        }
-
-        .button-dark {
-            background: #151515;
-            border: 1px solid #444444;
-        }
-
-        .button-dark:hover {
-            background: #222222;
-        }
-
-        /* TIME */
-
-        .hero-right {
-            min-width: 280px;
-            padding-left: 35px;
-            border-left: 4px solid #e10600;
-        }
-
-        .time-title {
-            display: block;
-            color: #888888;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .time {
-            display: block;
-            margin: 5px 0;
-
-            font-size: 85px;
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .time-unit {
-            color: #e10600;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        /* SECTIONS */
-
-        section {
-            padding: 70px 30px;
-            border-top: 1px solid #222222;
-        }
-
-        .section-title {
-            margin-bottom: 35px;
-        }
-
-        .section-title h2 {
-            margin: 0;
-            font-size: 40px;
-            text-transform: uppercase;
-        }
-
-        /* STATS */
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .stat {
-            padding: 30px;
-            background: #121212;
-            border: 1px solid #252525;
-        }
-
-        .stat-label {
-            display: block;
-            margin-bottom: 15px;
-
-            color: #e10600;
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .stat-value {
-            display: block;
-            margin-bottom: 10px;
-
-            font-size: 28px;
-            font-weight: 900;
-        }
-
-        .stat-description {
-            color: #777777;
-            line-height: 1.5;
-        }
-
-        /* LINKS */
-
-        .links {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .link {
-            display: block;
-            padding: 30px;
-
-            background: #121212;
-            border: 1px solid #252525;
-
-            text-decoration: none;
-        }
-
-        .link:hover {
-            border-color: #e10600;
-        }
-
-        .link-label {
-            display: block;
-            margin-bottom: 12px;
-
-            color: #e10600;
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .link-title {
-            display: block;
-            margin-bottom: 8px;
-
-            font-size: 27px;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .link-description {
-            color: #777777;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 30px;
-            border-top: 1px solid #222222;
-            background: #050505;
-            color: #666666;
-            font-size: 13px;
-        }
-
-        .footer {
-            max-width: 1200px;
-            margin: auto;
-
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 800px) {
-
-            .header {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .navigation {
-                justify-content: flex-start;
-            }
-
-            .hero {
-                padding: 70px 30px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 60px;
-            }
-
-            .hero-right {
-                min-width: 0;
-                width: 100%;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .links {
-                grid-template-columns: 1fr;
-            }
-
-            .footer {
-                flex-direction: column;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMR Corsa 190RR | KeHi Motorsport</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #f2f2f2;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1150px, 92%);
+    margin: auto;
+}
+
+/* HEADER */
+
+.site-header {
+    background: #050505;
+    border-bottom: 1px solid #242424;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #e10600;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #fff;
+}
+
+/* HERO */
+
+.page-hero {
+    padding: 85px 0 70px;
+    background:
+        linear-gradient(90deg, #080808 0%, #0d0d0d 55%, #111 100%);
+    border-bottom: 1px solid #222;
+}
+
+.eyebrow {
+    color: #e10600;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.page-hero h1 {
+    font-size: clamp(52px, 9vw, 100px);
+    line-height: 0.9;
+    font-weight: 900;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+}
+
+.page-hero h1 span {
+    color: #e10600;
+}
+
+.page-hero p:not(.eyebrow) {
+    color: #999;
+    max-width: 600px;
+    margin-top: 22px;
+    font-size: 17px;
+}
+
+/* SECTIONS */
+
+.section {
+    padding: 75px 0;
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.section h2 {
+    font-size: 38px;
+    line-height: 1.05;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.section h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+/* BIKE IMAGE */
+
+.bike-photo {
+    width: 100%;
+    max-height: 650px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid #292929;
+    background: #111;
+}
+
+/* INTRO */
+
+.bike-intro {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.bike-intro-text p {
+    color: #aaa;
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+.bike-intro-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* SPECS */
+
+.specs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: #292929;
+    border: 1px solid #292929;
+}
+
+.spec {
+    background: #101010;
+    padding: 27px 25px;
+    min-height: 115px;
+}
+
+.spec strong {
+    display: block;
+    color: #fff;
+    font-size: 23px;
+    line-height: 1.1;
+    margin-bottom: 7px;
+}
+
+.spec span {
+    color: #777;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* SETUP */
+
+.setup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.setup-card {
+    background: #101010;
+    border: 1px solid #252525;
+    padding: 30px;
+}
+
+.setup-card .red {
+    color: #e10600;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.setup-card p {
+    color: #999;
+}
+
+/* BUTTON */
+
+.btn {
+    display: inline-block;
+    background: #e10600;
+    color: #fff;
+    padding: 15px 24px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #b80000;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+
+.site-footer {
+    padding: 30px 0;
+    color: #555;
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 0;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px 20px;
+    }
+
+    .bike-intro {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .specs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .setup-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .page-hero {
+        padding: 60px 0 50px;
+    }
+
+    .page-hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .section {
+        padding: 55px 0;
+    }
+
+    .section h2 {
+        font-size: 30px;
+    }
+
+    .specs {
+        grid-template-columns: 1fr;
+    }
+
+    .spec {
+        min-height: auto;
+    }
+
+    .bike-photo {
+        max-height: 450px;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
-<header>
+<header class="site-header">
+    <div class="container nav">
 
-    <div class="header">
-
-        <a class="logo" href="./index.html">
-            KeHi <span class="logo-red">Motorsport</span>
+        <a class="logo" href="index.html">
+            KeHi <span>Motorsport</span>
         </a>
 
-        <nav class="navigation">
-
-            <a href="./index.html">Home</a>
-
-            <a href="./matej.html">Matěj</a>
-
-            <a href="./results.html">Results</a>
-
-            <a href="./bike.html">Bike</a>
-
-            <a href="./team.html">Team</a>
-
-            <a href="./contact.html">Contact</a>
-
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="matej.html">Matěj</a></li>
+                <li><a class="active" href="bike.html">Bike</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
 
     </div>
-
 </header>
 
 
 <main>
 
-    <div class="hero">
+<!-- HERO -->
 
-        <div class="hero-left">
+<section class="page-hero">
+    <div class="container">
 
-            <p class="eyebrow">
-                Czech MotoGymkhana Rider
+        <p class="eyebrow">KeHi Motorsport • Race Machine</p>
+
+        <h1>
+            IMR <span>190RR</span>
+        </h1>
+
+        <p>
+            Matěj Kerl's current MotoGymkhana and track machine.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- BIKE -->
+
+<section class="section">
+    <div class="container">
+
+        <img
+            src="imr.jpeg"
+            alt="IMR Corsa 190RR"
+            class="bike-photo"
+        >
+
+    </div>
+</section>
+
+
+<!-- INTRO -->
+
+<section class="section">
+    <div class="container bike-intro">
+
+        <div class="bike-intro-text">
+
+            <p class="eyebrow">THE MACHINE</p>
+
+            <h2>IMR Corsa 190RR</h2>
+
+            <p>
+                A lightweight race-focused pit bike used by
+                Matěj Kerl for MotoGymkhana and track riding.
             </p>
 
-            <h1>
-                <span class="name-white">Matěj</span>
-                <span class="name-red">Kerl</span>
-            </h1>
-
-            <p class="hero-text">
-                MotoGymkhana rider competing with KeHi Motorsport
-                on an IMR Corsa 190RR.
+            <p>
+                Its compact chassis, responsive engine and
+                lightweight construction make it suited to the
+                rapid direction changes and hard braking of
+                technical courses.
             </p>
-
-            <a class="button" href="./results.html">
-                View Results
-            </a>
-
-            <a class="button button-dark" href="./matej.html">
-                Rider Profile
-            </a>
 
         </div>
 
+        <div>
 
-        <div class="hero-right">
+            <p class="eyebrow">ROLE</p>
 
-            <span class="time-title">
-                GP8 BEST
-            </span>
-
-            <span class="time">
-                30.8
-            </span>
-
-            <span class="time-unit">
-                SECONDS
-            </span>
+            <div class="setup-card">
+                <h3>Race Bike</h3>
+                <p>
+                    MotoGymkhana<br>
+                    Track Riding<br>
+                    Competition
+                </p>
+            </div>
 
         </div>
 
     </div>
+</section>
 
 
-    <section>
+<!-- ENGINE -->
 
-        <div class="section-title">
+<section class="section">
+    <div class="container">
 
-            <p class="eyebrow">
-                2026
-            </p>
+        <p class="eyebrow">ENGINE</p>
 
-            <h2>
-                Key Results
-            </h2>
+        <h2>Power Unit</h2>
 
-        </div>
+        <div class="specs">
 
-
-        <div class="stats">
-
-            <div class="stat">
-
-                <span class="stat-label">
-                    MotoGymkhana GP8
-                </span>
-
-                <span class="stat-value">
-                    30.8 SEC
-                </span>
-
-                <span class="stat-description">
-                    Best recorded GP8 time.
-                </span>
-
+            <div class="spec">
+                <strong>190 cc</strong>
+                <span>Displacement</span>
             </div>
 
-
-            <div class="stat">
-
-                <span class="stat-label">
-                    2026MGymfunOLC
-                </span>
-
-                <span class="stat-value">
-                    24TH
-                </span>
-
-                <span class="stat-description">
-                    Round 5 position.
-                </span>
-
+            <div class="spec">
+                <strong>Zongshen</strong>
+                <span>Engine manufacturer</span>
             </div>
 
+            <div class="spec">
+                <strong>Single Cylinder</strong>
+                <span>Engine configuration</span>
+            </div>
 
-            <div class="stat">
+            <div class="spec">
+                <strong>2 Valve</strong>
+                <span>Cylinder head</span>
+            </div>
 
-                <span class="stat-label">
-                    Current Bike
-                </span>
+            <div class="spec">
+                <strong>4-Stroke</strong>
+                <span>Engine type</span>
+            </div>
 
-                <span class="stat-value">
-                    IMR 190RR
-                </span>
+            <div class="spec">
+                <strong>Oil Cooler</strong>
+                <span>Engine cooling</span>
+            </div>
 
-                <span class="stat-description">
-                    IMR Corsa 190RR race bike.
-                </span>
+            <div class="spec">
+                <strong>Carbureted</strong>
+                <span>Fuel system</span>
+            </div>
 
+            <div class="spec">
+                <strong>~13 kW</strong>
+                <span>Stock output</span>
+            </div>
+
+            <div class="spec">
+                <strong>Air / Oil</strong>
+                <span>Cooling system</span>
             </div>
 
         </div>
 
-    </section>
+    </div>
+</section>
 
 
-    <section>
+<!-- CHASSIS -->
 
-        <div class="section-title">
+<section class="section">
+    <div class="container">
 
-            <p class="eyebrow">
-                KeHi Motorsport
-            </p>
+        <p class="eyebrow">CHASSIS</p>
 
-            <h2>
-                Explore
-            </h2>
+        <h2>Race Hardware</h2>
 
-        </div>
+        <div class="specs">
 
+            <div class="spec">
+                <strong>17"</strong>
+                <span>Wheel size</span>
+            </div>
 
-        <div class="links">
+            <div class="spec">
+                <strong>Mitas</strong>
+                <span>S Racer 2.0 tyres</span>
+            </div>
 
-            <a class="link" href="./matej.html">
+            <div class="spec">
+                <strong>Race Setup</strong>
+                <span>Suspension</span>
+            </div>
 
-                <span class="link-label">
-                    Rider
-                </span>
+            <div class="spec">
+                <strong>Hydraulic</strong>
+                <span>Disc brakes</span>
+            </div>
 
-                <span class="link-title">
-                    Matěj Kerl
-                </span>
+            <div class="spec">
+                <strong>Lightweight</strong>
+                <span>Race chassis</span>
+            </div>
 
-                <span class="link-description">
-                    Rider profile and racing background.
-                </span>
-
-            </a>
-
-
-            <a class="link" href="./results.html">
-
-                <span class="link-label">
-                    Competition
-                </span>
-
-                <span class="link-title">
-                    Results
-                </span>
-
-                <span class="link-description">
-                    Race times and positions.
-                </span>
-
-            </a>
-
-
-            <a class="link" href="./bike.html">
-
-                <span class="link-label">
-                    Machine
-                </span>
-
-                <span class="link-title">
-                    IMR Corsa 190RR
-                </span>
-
-                <span class="link-description">
-                    Current competition motorcycle.
-                </span>
-
-            </a>
-
-
-            <a class="link" href="./team.html">
-
-                <span class="link-label">
-                    Team
-                </span>
-
-                <span class="link-title">
-                    KeHi Motorsport
-                </span>
-
-                <span class="link-description">
-                    The team behind the racing.
-                </span>
-
-            </a>
+            <div class="spec">
+                <strong>Compact</strong>
+                <span>Technical-course geometry</span>
+            </div>
 
         </div>
 
-    </section>
+    </div>
+</section>
+
+
+<!-- CURRENT SETUP -->
+
+<section class="section">
+    <div class="container">
+
+        <p class="eyebrow">CURRENT CONFIGURATION</p>
+
+        <h2>Built for Gymkhana</h2>
+
+        <div class="setup-grid">
+
+            <div class="setup-card">
+                <div class="red">Tyres</div>
+                <h3>Mitas S Racer 2.0</h3>
+                <p>
+                    Race-oriented tyres for maximum grip
+                    and predictable handling.
+                </p>
+            </div>
+
+            <div class="setup-card">
+                <div class="red">Discipline</div>
+                <h3>MotoGymkhana</h3>
+                <p>
+                    Set up for tight courses, rapid transitions,
+                    braking and aggressive direction changes.
+                </p>
+            </div>
+
+            <div class="setup-card">
+                <div class="red">Rider</div>
+                <h3>Matěj Kerl</h3>
+                <p>
+                    KeHi Motorsport rider and MotoGymkhana competitor.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- RESULTS -->
+
+<section class="section">
+    <div class="container">
+
+        <p class="eyebrow">ON TRACK</p>
+
+        <h2>See The Results</h2>
+
+        <a href="results.html" class="btn">
+            View Race Results →
+        </a>
+
+    </div>
+</section>
 
 </main>
 
 
-<footer>
-
-    <div class="footer">
-
-        <span>
-            © 2026 KeHi Motorsport
-        </span>
-
-        <span>
-            Matěj Kerl · MotoGymkhana
-        </span>
-
+<footer class="site-footer">
+    <div class="container">
+        <p>© 2026 KeHi Motorsport</p>
     </div>
-
 </footer>
-
 
 </body>
 </html>
