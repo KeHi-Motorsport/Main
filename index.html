@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,32 +12,34 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             background: #0b0b0b;
-            color: white;
+            color: #ffffff;
             font-family: Arial, Helvetica, sans-serif;
         }
 
         a {
             color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1100px, 90%);
-            margin: auto;
         }
 
         /* HEADER */
 
         header {
-            background: #080808;
+            width: 100%;
+            background: #050505;
             border-bottom: 2px solid #e10600;
         }
 
-        .nav {
-            min-height: 75px;
+        .header {
+            max-width: 1200px;
+            margin: auto;
+            padding: 22px 30px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -44,124 +47,132 @@
         }
 
         .logo {
-            font-size: 24px;
+            text-decoration: none;
+            font-size: 25px;
             font-weight: 900;
-            letter-spacing: -1px;
+            white-space: nowrap;
         }
 
-        .logo span {
+        .logo-red {
             color: #e10600;
         }
 
-        nav {
+        .navigation {
             display: flex;
             gap: 25px;
             flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
-        nav a {
-            color: #aaa;
+        .navigation a {
+            text-decoration: none;
+            color: #bbbbbb;
             font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
         }
 
-        nav a:hover,
-        nav a.active {
-            color: white;
+        .navigation a:hover {
+            color: #e10600;
+        }
+
+        /* MAIN */
+
+        main {
+            max-width: 1200px;
+            margin: auto;
         }
 
         /* HERO */
 
         .hero {
             min-height: 520px;
+            padding: 100px 30px;
+
             display: flex;
             align-items: center;
-            border-bottom: 1px solid #222;
+            justify-content: space-between;
+            gap: 80px;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 70px;
-            align-items: center;
+        .hero-left {
+            max-width: 700px;
         }
 
         .eyebrow {
-            margin: 0 0 15px;
+            margin: 0 0 20px;
             color: #e10600;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         h1 {
             margin: 0;
             font-size: clamp(60px, 10vw, 120px);
-            line-height: 0.82;
+            line-height: 0.85;
             text-transform: uppercase;
-            letter-spacing: -6px;
         }
 
-        h1 .first {
+        .name-white {
             display: block;
             color: white;
         }
 
-        h1 .last {
+        .name-red {
             display: block;
             color: #e10600;
         }
 
-        .intro {
-            max-width: 550px;
-            margin: 30px 0;
-            color: #aaa;
+        .hero-text {
+            max-width: 600px;
+            margin: 35px 0;
+
+            color: #999999;
             font-size: 18px;
             line-height: 1.6;
         }
 
-        .buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
         .button {
             display: inline-block;
-            padding: 14px 22px;
+            padding: 15px 25px;
+            margin-right: 10px;
+
             background: #e10600;
             color: white;
+
+            text-decoration: none;
+            font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 13px;
-        }
-
-        .button.outline {
-            background: transparent;
-            border: 1px solid #555;
         }
 
         .button:hover {
-            background: #ff1710;
+            background: #ff1b12;
         }
 
-        .button.outline:hover {
-            border-color: white;
+        .button-dark {
+            background: #151515;
+            border: 1px solid #444444;
         }
 
-        /* BIG TIME */
+        .button-dark:hover {
+            background: #222222;
+        }
 
-        .time-box {
+        /* TIME */
+
+        .hero-right {
+            min-width: 280px;
+            padding-left: 35px;
             border-left: 4px solid #e10600;
-            padding-left: 30px;
         }
 
-        .time-label {
+        .time-title {
             display: block;
-            color: #888;
-            font-size: 13px;
+            color: #888888;
+            font-size: 14px;
             font-weight: bold;
             letter-spacing: 2px;
         }
@@ -169,22 +180,24 @@
         .time {
             display: block;
             margin: 5px 0;
-            font-size: 90px;
-            line-height: 1;
+
+            font-size: 85px;
             font-weight: 900;
+            line-height: 1;
         }
 
-        .seconds {
+        .time-unit {
             color: #e10600;
             font-size: 14px;
             font-weight: bold;
             letter-spacing: 2px;
         }
 
-        /* QUICK INFO */
+        /* SECTIONS */
 
-        .section {
-            padding: 70px 0;
+        section {
+            padding: 70px 30px;
+            border-top: 1px solid #222222;
         }
 
         .section-title {
@@ -193,25 +206,28 @@
 
         .section-title h2 {
             margin: 0;
-            font-size: 38px;
+            font-size: 40px;
             text-transform: uppercase;
         }
 
-        .cards {
+        /* STATS */
+
+        .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
-        .card {
-            padding: 28px;
+        .stat {
+            padding: 30px;
             background: #121212;
-            border: 1px solid #242424;
+            border: 1px solid #252525;
         }
 
-        .card-label {
+        .stat-label {
             display: block;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
+
             color: #e10600;
             font-size: 12px;
             font-weight: bold;
@@ -219,14 +235,16 @@
             text-transform: uppercase;
         }
 
-        .card h3 {
-            margin: 0 0 10px;
-            font-size: 24px;
+        .stat-value {
+            display: block;
+            margin-bottom: 10px;
+
+            font-size: 28px;
+            font-weight: 900;
         }
 
-        .card p {
-            margin: 0;
-            color: #888;
+        .stat-description {
+            color: #777777;
             line-height: 1.5;
         }
 
@@ -235,53 +253,61 @@
         .links {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 20px;
         }
 
-        .link-card {
-            padding: 25px;
+        .link {
+            display: block;
+            padding: 30px;
+
             background: #121212;
-            border: 1px solid #242424;
-            transition: 0.15s;
+            border: 1px solid #252525;
+
+            text-decoration: none;
         }
 
-        .link-card:hover {
+        .link:hover {
             border-color: #e10600;
-            transform: translateY(-2px);
         }
 
-        .link-card small {
+        .link-label {
+            display: block;
+            margin-bottom: 12px;
+
+            color: #e10600;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .link-title {
             display: block;
             margin-bottom: 8px;
-            color: #e10600;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
 
-        .link-card strong {
-            display: block;
-            font-size: 25px;
+            font-size: 27px;
+            font-weight: 900;
             text-transform: uppercase;
         }
 
-        .link-card span {
-            display: block;
-            margin-top: 8px;
-            color: #777;
+        .link-description {
+            color: #777777;
         }
 
         /* FOOTER */
 
         footer {
-            padding: 30px 0;
-            background: #070707;
-            border-top: 1px solid #222;
-            color: #666;
+            padding: 30px;
+            border-top: 1px solid #222222;
+            background: #050505;
+            color: #666666;
             font-size: 13px;
         }
 
-        footer .footer-inner {
+        .footer {
+            max-width: 1200px;
+            margin: auto;
+
             display: flex;
             justify-content: space-between;
             gap: 20px;
@@ -290,32 +316,29 @@
         /* MOBILE */
 
         @media (max-width: 800px) {
-            .nav {
-                padding: 20px 0;
-                flex-direction: column;
+
+            .header {
                 align-items: flex-start;
+                flex-direction: column;
             }
 
-            nav {
-                gap: 15px;
+            .navigation {
+                justify-content: flex-start;
             }
 
             .hero {
-                padding: 70px 0;
+                padding: 70px 30px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 60px;
             }
 
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
+            .hero-right {
+                min-width: 0;
+                width: 100%;
             }
 
-            .time-box {
-                border-left: 0;
-                border-top: 3px solid #e10600;
-                padding: 20px 0 0;
-            }
-
-            .cards {
+            .stats {
                 grid-template-columns: 1fr;
             }
 
@@ -323,152 +346,274 @@
                 grid-template-columns: 1fr;
             }
 
-            footer .footer-inner {
+            .footer {
                 flex-direction: column;
             }
         }
     </style>
 </head>
 
+
 <body>
 
 <header>
-    <div class="container nav">
 
-        <a class="logo" href="index.html">
-            KeHi <span>Motorsport</span>
+    <div class="header">
+
+        <a class="logo" href="./index.html">
+            KeHi <span class="logo-red">Motorsport</span>
         </a>
 
-        <nav>
-            <a class="active" href="index.html">Home</a>
-            <a href="matej.html">Matěj</a>
-            <a href="results.html">Results</a>
-            <a href="bike.html">Bike</a>
-            <a href="team.html">Team</a>
-            <a href="contact.html">Contact</a>
+        <nav class="navigation">
+
+            <a href="./index.html">Home</a>
+
+            <a href="./matej.html">Matěj</a>
+
+            <a href="./results.html">Results</a>
+
+            <a href="./bike.html">Bike</a>
+
+            <a href="./team.html">Team</a>
+
+            <a href="./contact.html">Contact</a>
+
         </nav>
 
     </div>
+
 </header>
 
 
 <main>
 
-    <section class="hero">
-        <div class="container hero-grid">
+    <div class="hero">
 
-            <div>
-                <p class="eyebrow">Czech MotoGymkhana Rider</p>
+        <div class="hero-left">
 
-                <h1>
-                    <span class="first">Matěj</span>
-                    <span class="last">Kerl</span>
-                </h1>
+            <p class="eyebrow">
+                Czech MotoGymkhana Rider
+            </p>
 
-                <p class="intro">
-                    Motorcycle racer competing in MotoGymkhana
-                    with KeHi Motorsport.
-                </p>
+            <h1>
+                <span class="name-white">Matěj</span>
+                <span class="name-red">Kerl</span>
+            </h1>
 
-                <div class="buttons">
-                    <a class="button" href="results.html">Results</a>
-                    <a class="button outline" href="matej.html">Rider Profile</a>
-                </div>
+            <p class="hero-text">
+                MotoGymkhana rider competing with KeHi Motorsport
+                on an IMR Corsa 190RR.
+            </p>
+
+            <a class="button" href="./results.html">
+                View Results
+            </a>
+
+            <a class="button button-dark" href="./matej.html">
+                Rider Profile
+            </a>
+
+        </div>
+
+
+        <div class="hero-right">
+
+            <span class="time-title">
+                GP8 BEST
+            </span>
+
+            <span class="time">
+                30.8
+            </span>
+
+            <span class="time-unit">
+                SECONDS
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <section>
+
+        <div class="section-title">
+
+            <p class="eyebrow">
+                2026
+            </p>
+
+            <h2>
+                Key Results
+            </h2>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <span class="stat-label">
+                    MotoGymkhana GP8
+                </span>
+
+                <span class="stat-value">
+                    30.8 SEC
+                </span>
+
+                <span class="stat-description">
+                    Best recorded GP8 time.
+                </span>
+
             </div>
 
 
-            <div class="time-box">
-                <span class="time-label">GP8 BEST</span>
-                <span class="time">30.8</span>
-                <span class="seconds">SECONDS</span>
+            <div class="stat">
+
+                <span class="stat-label">
+                    2026MGymfunOLC
+                </span>
+
+                <span class="stat-value">
+                    24TH
+                </span>
+
+                <span class="stat-description">
+                    Round 5 position.
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="stat-label">
+                    Current Bike
+                </span>
+
+                <span class="stat-value">
+                    IMR 190RR
+                </span>
+
+                <span class="stat-description">
+                    IMR Corsa 190RR race bike.
+                </span>
+
             </div>
 
         </div>
+
     </section>
 
 
-    <section class="section">
-        <div class="container">
+    <section>
 
-            <div class="section-title">
-                <p class="eyebrow">Current Season</p>
-                <h2>Key Stats</h2>
-            </div>
+        <div class="section-title">
 
-            <div class="cards">
+            <p class="eyebrow">
+                KeHi Motorsport
+            </p>
 
-                <div class="card">
-                    <span class="card-label">Race Bike</span>
-                    <h3>IMR Corsa 190RR</h3>
-                    <p>Current competition machine.</p>
-                </div>
-
-                <div class="card">
-                    <span class="card-label">GP8</span>
-                    <h3>30.8 Seconds</h3>
-                    <p>Best recorded GP8 time.</p>
-                </div>
-
-                <div class="card">
-                    <span class="card-label">Round 5</span>
-                    <h3>24th Place</h3>
-                    <p>2026MGymfunOLC Round 5.</p>
-                </div>
-
-            </div>
+            <h2>
+                Explore
+            </h2>
 
         </div>
-    </section>
 
 
-    <section class="section">
-        <div class="container">
+        <div class="links">
 
-            <div class="section-title">
-                <p class="eyebrow">KeHi Motorsport</p>
-                <h2>Explore</h2>
-            </div>
+            <a class="link" href="./matej.html">
 
-            <div class="links">
+                <span class="link-label">
+                    Rider
+                </span>
 
-                <a class="link-card" href="matej.html">
-                    <small>Rider</small>
-                    <strong>Matěj Kerl</strong>
-                    <span>Profile and racing background</span>
-                </a>
+                <span class="link-title">
+                    Matěj Kerl
+                </span>
 
-                <a class="link-card" href="results.html">
-                    <small>Competition</small>
-                    <strong>Results</strong>
-                    <span>Times and positions</span>
-                </a>
+                <span class="link-description">
+                    Rider profile and racing background.
+                </span>
 
-                <a class="link-card" href="bike.html">
-                    <small>Machine</small>
-                    <strong>IMR Corsa 190RR</strong>
-                    <span>Current race bike</span>
-                </a>
+            </a>
 
-                <a class="link-card" href="team.html">
-                    <small>Team</small>
-                    <strong>KeHi Motorsport</strong>
-                    <span>The people behind the racing</span>
-                </a>
 
-            </div>
+            <a class="link" href="./results.html">
+
+                <span class="link-label">
+                    Competition
+                </span>
+
+                <span class="link-title">
+                    Results
+                </span>
+
+                <span class="link-description">
+                    Race times and positions.
+                </span>
+
+            </a>
+
+
+            <a class="link" href="./bike.html">
+
+                <span class="link-label">
+                    Machine
+                </span>
+
+                <span class="link-title">
+                    IMR Corsa 190RR
+                </span>
+
+                <span class="link-description">
+                    Current competition motorcycle.
+                </span>
+
+            </a>
+
+
+            <a class="link" href="./team.html">
+
+                <span class="link-label">
+                    Team
+                </span>
+
+                <span class="link-title">
+                    KeHi Motorsport
+                </span>
+
+                <span class="link-description">
+                    The team behind the racing.
+                </span>
+
+            </a>
 
         </div>
+
     </section>
 
 </main>
 
 
 <footer>
-    <div class="container footer-inner">
-        <span>© 2026 KeHi Motorsport</span>
-        <span>Matěj Kerl · MotoGymkhana</span>
+
+    <div class="footer">
+
+        <span>
+            © 2026 KeHi Motorsport
+        </span>
+
+        <span>
+            Matěj Kerl · MotoGymkhana
+        </span>
+
     </div>
+
 </footer>
+
 
 </body>
 </html>
