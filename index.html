@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +8,496 @@
     <title>KeHi Motorsport | Czech MotoGymkhana</title>
 
     <meta name="description"
-          content="KeHi Motorsport is a Czech motorcycle racing team. Matěj Kerl and Honza Hingar compete in MotoGymkhana.">
+        content="KeHi Motorsport is a Czech motorcycle racing team. Matěj Kerl and Honza Hingar compete in MotoGymkhana.">
 
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 2px solid #e10600;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        /* Team name */
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        .logo-kehi {
+            color: #ffffff;
+        }
+
+        .logo-motorsport {
+            color: #e10600;
+        }
+
+        /* Navigation */
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .navigation a {
+            position: relative;
+
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+
+            transition: color 0.2s ease;
+        }
+
+        .navigation a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: #e10600;
+
+            transition: width 0.2s ease;
+        }
+
+        .navigation a:hover {
+            color: #e10600;
+        }
+
+        .navigation a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 75vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.9)
+                );
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 9vw, 100px);
+            font-weight: 900;
+            letter-spacing: 5px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #e10600;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #cccccc;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .hero-tag {
+            display: inline-block;
+
+            margin-bottom: 20px;
+            padding: 6px 14px;
+
+            border: 1px solid #e10600;
+            color: #e10600;
+
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 30px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: 900;
+            margin-bottom: 40px;
+
+            border-left: 5px solid #e10600;
+            padding-left: 15px;
+        }
+
+
+        /* =========================
+           RIDERS
+        ========================= */
+
+        .riders {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .rider-card {
+            background: #151515;
+            border: 1px solid #292929;
+
+            padding: 35px;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .rider-card:hover {
+            transform: translateY(-5px);
+            border-color: #e10600;
+        }
+
+        .rider-number {
+            color: #e10600;
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+        }
+
+        .rider-card h3 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .rider-card p {
+            color: #bdbdbd;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #101010;
+            max-width: none;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 30px;
+        }
+
+        .about p {
+            max-width: 800px;
+            color: #c5c5c5;
+            font-size: 18px;
+        }
+
+        .team-name {
+            color: #e10600;
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #292929;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            color: #777777;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: column;
+                padding: 15px 20px;
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .navigation {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .navigation a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 65vh;
+                padding: 60px 20px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            .riders {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-    <h1>KeHi Motorsport</h1>
 
-    <p>
-        Czech motorcycle racing team.
-    </p>
+    <!-- =========================
+         HEADER
+    ========================= -->
 
-    <h2>Riders</h2>
+    <header class="site-header">
 
-    <h3>Matěj Kerl</h3>
+        <div class="header-container">
 
-    <p>
-        Czech MotoGymkhana rider and member of KeHi Motorsport.
-    </p>
+            <a href="#home" class="logo">
+                <span class="logo-kehi">KEHI</span>
+                <span class="logo-motorsport">MOTORSPORT</span>
+            </a>
 
-    <h3>Honza Hingar</h3>
+            <nav class="navigation">
+                <a href="#home">HOME</a>
+                <a href="#riders">RIDERS</a>
+                <a href="#about">ABOUT</a>
+            </nav>
 
-    <p>
-        Motorcycle racer and member of KeHi Motorsport.
-    </p>
+        </div>
 
-    <h2>About KeHi Motorsport</h2>
+    </header>
 
-    <p>
-        KeHi Motorsport is a Czech motorcycle racing team.
-        The name combines Kerl and Hingar, representing
-        Matěj Kerl and Honza Hingar.
-    </p>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <div class="hero-tag">
+                    CZECH MOTORCYCLE RACING
+                </div>
+
+                <h1>
+                    KEHI <span>MOTORSPORT</span>
+                </h1>
+
+                <p>
+                    Czech motorcycle racing team competing in
+                    MotoGymkhana and motorcycle motorsport.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             RIDERS
+        ========================= -->
+
+        <section id="riders">
+
+            <h2 class="section-title">
+                RIDERS
+            </h2>
+
+            <div class="riders">
+
+                <article class="rider-card">
+
+                    <div class="rider-number">
+                        RIDER 01
+                    </div>
+
+                    <h3>
+                        Matěj Kerl
+                    </h3>
+
+                    <p>
+                        Czech MotoGymkhana rider and member of
+                        KeHi Motorsport.
+                    </p>
+
+                </article>
+
+
+                <article class="rider-card">
+
+                    <div class="rider-number">
+                        RIDER 02
+                    </div>
+
+                    <h3>
+                        Honza Hingar
+                    </h3>
+
+                    <p>
+                        Motorcycle racer and member of
+                        KeHi Motorsport.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             ABOUT
+        ========================= -->
+
+        <section class="about" id="about">
+
+            <div class="about-content">
+
+                <h2 class="section-title">
+                    ABOUT KEHI
+                </h2>
+
+                <p>
+                    <span class="team-name">KeHi Motorsport</span>
+                    is a Czech motorcycle racing team created by
+                    Matěj Kerl and Honza Hingar.
+                </p>
+
+                <br>
+
+                <p>
+                    The name <strong>KeHi</strong> combines
+                    <strong>Kerl</strong> and
+                    <strong>Hingar</strong>, representing the two
+                    riders behind the team.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 KeHi Motorsport
+
+    </footer>
+
 
 </body>
 </html>
