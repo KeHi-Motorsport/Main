@@ -1,776 +1,273 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>KeHi Motorsport | Matěj Kerl</title>
-    <meta name="description"
-          content="Matěj Kerl — Czech MotoGymkhana rider competing with an IMR Corsa 190RR.">
-
-    <style>
-        /* ================================
-           RESET
-        ================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #080808;
-            color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-            min-height: 100vh;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-
-        /* ================================
-           HEADER
-        ================================= */
-
-        .kh-header {
-            height: 82px;
-            width: 100%;
-            background: #080808;
-            border-bottom: 1px solid #242424;
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 100;
-        }
-
-        .kh-header-inner {
-            width: min(1400px, 90%);
-            margin: 0 auto;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-
-        /* LOGO */
-
-        .kh-logo {
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
-        }
-
-        .kh-logo-main {
-            font-size: 27px;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
-
-        .kh-logo-sub {
-            margin-top: 5px;
-            color: #e10600;
-            font-size: 8px;
-            font-weight: 800;
-            letter-spacing: 4px;
-        }
-
-
-        /* NAV */
-
-        .kh-nav {
-            display: flex;
-            align-items: center;
-            gap: 34px;
-        }
-
-        .kh-nav a {
-            position: relative;
-            color: #999;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 31px 0;
-            transition: color .2s ease;
-        }
-
-        .kh-nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            height: 3px;
-            background: #e10600;
-
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform .2s ease;
-        }
-
-        .kh-nav a:hover,
-        .kh-nav a.active {
-            color: #ffffff;
-        }
-
-        .kh-nav a:hover::after,
-        .kh-nav a.active::after {
-            transform: scaleX(1);
-        }
-
-
-        /* ================================
-           HERO
-        ================================= */
-
-        .kh-hero {
-            min-height: calc(100vh - 82px);
-            width: min(1400px, 90%);
-            margin: 0 auto;
-
-            display: grid;
-            grid-template-columns: 1fr 360px;
-            align-items: center;
-
-            position: relative;
-            overflow: hidden;
-        }
-
-
-        /* RED ACCENT LINE */
-
-        .kh-hero::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 15%;
-            width: 5px;
-            height: 70%;
-
-            background: #e10600;
-        }
-
-
-        /* BACKGROUND NUMBER */
-
-        .kh-bg-number {
-            position: absolute;
-            right: -30px;
-            bottom: -70px;
-
-            color: #111111;
-            font-size: 330px;
-            font-weight: 900;
-            line-height: .8;
-            letter-spacing: -25px;
-
-            user-select: none;
-            pointer-events: none;
-        }
-
-
-        /* HERO CONTENT */
-
-        .kh-hero-content {
-            position: relative;
-            z-index: 2;
-            padding-left: 70px;
-        }
-
-        .kh-kicker {
-            color: #e10600;
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 5px;
-            margin-bottom: 25px;
-        }
-
-        .kh-title {
-            font-size: clamp(80px, 11vw, 165px);
-            font-weight: 900;
-            line-height: .78;
-            letter-spacing: -8px;
-            text-transform: uppercase;
-        }
-
-        .kh-title span {
-            display: block;
-            color: #e10600;
-        }
-
-        .kh-divider {
-            width: 100px;
-            height: 4px;
-            background: #e10600;
-            margin: 38px 0 28px;
-        }
-
-        .kh-description {
-            color: #aaa;
-            font-size: 17px;
-            line-height: 1.7;
-            max-width: 520px;
-        }
-
-        .kh-description strong {
-            color: #fff;
-        }
-
-
-        /* BUTTONS */
-
-        .kh-buttons {
-            display: flex;
-            gap: 14px;
-            margin-top: 35px;
-        }
-
-        .kh-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            min-height: 48px;
-            padding: 0 25px;
-
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 1.5px;
-
-            transition: .2s ease;
-        }
-
-        .kh-button-red {
-            background: #e10600;
-            color: #fff;
-        }
-
-        .kh-button-red:hover {
-            background: #bd0500;
-        }
-
-        .kh-button-outline {
-            border: 1px solid #3a3a3a;
-            color: #fff;
-        }
-
-        .kh-button-outline:hover {
-            border-color: #e10600;
-        }
-
-
-        /* ================================
-           HERO STATS
-        ================================= */
-
-        .kh-stats {
-            position: relative;
-            z-index: 3;
-
-            border-left: 1px solid #292929;
-            padding-left: 55px;
-        }
-
-        .kh-stat {
-            padding: 28px 0;
-            border-bottom: 1px solid #292929;
-        }
-
-        .kh-stat:first-child {
-            padding-top: 0;
-        }
-
-        .kh-stat:last-child {
-            border-bottom: none;
-        }
-
-        .kh-stat-label {
-            display: block;
-            color: #777;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 9px;
-        }
-
-        .kh-stat-value {
-            display: block;
-            color: #fff;
-            font-size: 27px;
-            font-weight: 900;
-        }
-
-        .kh-stat-value.red {
-            color: #e10600;
-        }
-
-        .kh-stat-small {
-            display: block;
-            margin-top: 5px;
-            color: #555;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-
-        /* ================================
-           BOTTOM STRIP
-        ================================= */
-
-        .kh-strip {
-            border-top: 1px solid #242424;
-            border-bottom: 1px solid #242424;
-
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .kh-strip-link {
-            min-height: 120px;
-            padding: 30px 7%;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            background: #0a0a0a;
-            border-right: 1px solid #242424;
-
-            transition: background .2s ease;
-        }
-
-        .kh-strip-link:last-child {
-            border-right: none;
-        }
-
-        .kh-strip-link:hover {
-            background: #111;
-        }
-
-        .kh-strip-number {
-            color: #e10600;
-            font-size: 11px;
-            font-weight: 900;
-        }
-
-        .kh-strip-info {
-            margin-left: 20px;
-            margin-right: auto;
-        }
-
-        .kh-strip-info small {
-            display: block;
-            color: #666;
-            font-size: 9px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
-
-        .kh-strip-info strong {
-            font-size: 16px;
-            font-weight: 900;
-        }
-
-        .kh-strip-arrow {
-            color: #e10600;
-            font-size: 22px;
-            font-weight: 300;
-        }
-
-
-        /* ================================
-           FOOTER
-        ================================= */
-
-        .kh-footer {
-            width: min(1400px, 90%);
-            margin: 0 auto;
-
-            min-height: 85px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            color: #555;
-            font-size: 10px;
-        }
-
-        .kh-footer strong {
-            color: #999;
-            font-size: 10px;
-            letter-spacing: 1px;
-        }
-
-
-        /* ================================
-           TABLET
-        ================================= */
-
-        @media (max-width: 900px) {
-
-            .kh-header {
-                height: auto;
-                min-height: 75px;
-            }
-
-            .kh-header-inner {
-                padding: 15px 0;
-                flex-direction: column;
-                gap: 18px;
-            }
-
-            .kh-nav {
-                gap: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .kh-nav a {
-                padding: 4px 0;
-            }
-
-            .kh-nav a::after {
-                display: none;
-            }
-
-            .kh-hero {
-                min-height: auto;
-                padding: 100px 0;
-                grid-template-columns: 1fr;
-            }
-
-            .kh-hero-content {
-                padding-left: 45px;
-            }
-
-            .kh-stats {
-                margin: 80px 0 0 45px;
-                padding-left: 30px;
-            }
-
-            .kh-bg-number {
-                font-size: 250px;
-            }
-
-            .kh-strip {
-                grid-template-columns: 1fr;
-            }
-
-            .kh-strip-link {
-                border-right: none;
-                border-bottom: 1px solid #242424;
-            }
-
-            .kh-strip-link:last-child {
-                border-bottom: none;
-            }
-        }
-
-
-        /* ================================
-           MOBILE
-        ================================= */
-
-        @media (max-width: 600px) {
-
-            .kh-header-inner {
-                width: 92%;
-            }
-
-            .kh-logo-main {
-                font-size: 24px;
-            }
-
-            .kh-nav {
-                gap: 15px;
-            }
-
-            .kh-nav a {
-                font-size: 9px;
-            }
-
-            .kh-hero {
-                width: 92%;
-                padding: 75px 0;
-            }
-
-            .kh-hero::before {
-                width: 3px;
-                top: 10%;
-                height: 80%;
-            }
-
-            .kh-hero-content {
-                padding-left: 28px;
-            }
-
-            .kh-kicker {
-                font-size: 9px;
-                letter-spacing: 3px;
-            }
-
-            .kh-title {
-                font-size: clamp(65px, 20vw, 110px);
-                letter-spacing: -5px;
-            }
-
-            .kh-description {
-                font-size: 14px;
-            }
-
-            .kh-buttons {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .kh-button {
-                width: 190px;
-            }
-
-            .kh-stats {
-                margin-left: 28px;
-                padding-left: 22px;
-            }
-
-            .kh-stat-value {
-                font-size: 23px;
-            }
-
-            .kh-bg-number {
-                right: -20px;
-                bottom: 100px;
-                font-size: 170px;
-                letter-spacing: -15px;
-            }
-
-            .kh-strip-link {
-                min-height: 100px;
-                padding: 25px;
-            }
-
-            .kh-footer {
-                width: 92%;
-                padding: 25px 0;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-        }
-    </style>
-</head>
-
-
-<body>
-
-    <!-- HEADER -->
-
-    <header class="kh-header">
-
-        <div class="kh-header-inner">
-
-            <a href="index.html" class="kh-logo">
-                <span class="kh-logo-main">KEHI</span>
-                <span class="kh-logo-sub">MOTORSPORT</span>
-            </a>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#070707;--panel:#101010;--panel2:#151515;--text:#f4f4f4;--muted:#929292;--red:#e10600;--line:#242424;--max:1180px}
+html{scroll-behavior:smooth}
+body{min-height:100vh;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{width:min(1160px,calc(100% - 48px));margin:auto}
+
+.site-header{height:76px;background:rgba(7,7,7,.96);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:30px}
+
+.logo{font-weight:900;font-size:20px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.logo span{color:var(--red)}
+
+.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
+.nav-links a{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#bdbdbd;transition:.18s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-links a.active{position:relative}
+.nav-links a.active:after{content:"";position:absolute;left:0;right:0;bottom:-11px;height:2px;background:var(--red)}
+
+main{min-height:calc(100vh - 130px)}
+
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+
+.lead{color:var(--muted);max-width:650px;font-size:16px}
+
+h1,h2,h3{font-family:"Arial Narrow",Arial,Helvetica,sans-serif;line-height:.92;text-transform:uppercase}
+h1{font-size:clamp(56px,9vw,128px);font-weight:1000;letter-spacing:-.055em}
+h2{font-size:clamp(38px,5vw,68px);font-weight:1000;letter-spacing:-.045em}
+h3{font-size:22px;font-weight:900}
+
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border:1px solid #363636;background:#111;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;transition:.18s}
+.btn:hover{border-color:var(--red);transform:translateY(-2px)}
+.btn-primary{background:var(--red);border-color:var(--red)}
+.btn-primary:hover{background:#b80500}
+
+.hero{position:relative;min-height:calc(100vh - 76px);display:flex;align-items:center;border-bottom:1px solid var(--line);overflow:hidden;background:linear-gradient(115deg,#070707 0%,#0a0a0a 58%,#101010 100%)}
+
+.hero:before{content:"";position:absolute;width:48vw;height:150%;right:-18vw;top:-25%;background:linear-gradient(135deg,transparent 0 28%,rgba(225,6,0,.92) 28% 31%,transparent 31% 100%);opacity:.22;transform:skewX(-12deg);pointer-events:none}
+
+.hero:after{content:"KEHI";position:absolute;right:-35px;bottom:-42px;font-size:24vw;font-weight:1000;line-height:1;color:#fff;opacity:.025;letter-spacing:-.08em;pointer-events:none}
+
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:70px;align-items:end;padding:90px 0 100px}
+
+.hero-copy{max-width:800px}
+.hero h1{margin-bottom:24px}
+.hero h1 .first{display:block;color:#fff}
+.hero h1 .last{display:block;color:var(--red)}
+
+.hero-kicker{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.hero-kicker:before{content:"";width:38px;height:3px;background:var(--red)}
+
+.hero-stat{align-self:end;border-left:3px solid var(--red);padding:20px 0 20px 25px}
+.hero-stat .small{display:block;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.hero-stat .big{display:block;font-size:68px;line-height:.85;font-weight:1000;letter-spacing:-.06em}
+.hero-stat .unit{display:block;margin-top:10px;color:#aaa;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.hero-stat .bike{margin-top:30px}
+.hero-stat .bike strong{display:block;font-size:18px;text-transform:uppercase}
+.hero-stat .bike span{color:var(--muted);font-size:11px}
+
+.section{padding:92px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:34px}
+.section-head h2{margin:0}
+.section-head .eyebrow{margin:0}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:28px 24px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat-value{display:block;font-size:38px;line-height:1;font-weight:1000;letter-spacing:-.04em}
+.stat-label{display:block;margin-top:9px;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+
+.home-links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.home-link{min-height:150px;background:var(--panel);border:1px solid var(--line);padding:25px;display:flex;flex-direction:column;justify-content:space-between;transition:.18s}
+.home-link:hover{border-color:#555;transform:translateY(-3px)}
+.home-link .tag{color:var(--red);font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.home-link strong{font-size:22px;text-transform:uppercase}
+.home-link span:last-child{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+
+.page-hero{position:relative;overflow:hidden;padding:105px 0 88px;border-bottom:1px solid var(--line);background:linear-gradient(110deg,#090909,#0c0c0c)}
+.page-hero:after{content:"";position:absolute;right:-70px;bottom:-130px;width:420px;height:420px;border:1px solid rgba(225,6,0,.25);transform:rotate(45deg)}
+.page-hero .container{position:relative;z-index:1}
+.page-hero h1{max-width:1000px;margin-bottom:20px}
+
+.card{background:var(--panel);border:1px solid var(--line);padding:28px}
+.card p:not(.eyebrow){color:var(--muted);font-size:14px}
+.card-link{display:inline-block;margin-top:22px;color:#fff;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.card-link:hover{color:var(--red)}
+
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.info-grid .card{min-height:190px;display:flex;flex-direction:column}
+.info-grid .card .card-link{margin-top:auto}
+
+.results-list{display:grid;gap:10px}
+.result-card{display:grid;grid-template-columns:105px minmax(230px,1.5fr) repeat(4,minmax(100px,.65fr));align-items:center;gap:18px;padding:23px 24px;background:var(--panel);border:1px solid var(--line)}
+.result-card:hover{border-color:#444}
+.result-number{color:var(--red);font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.result-title{font-size:16px;font-weight:900;text-transform:uppercase}
+.result-meta{color:#777;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.result-meta strong{display:block;color:#eee;margin-top:4px;font-size:13px;letter-spacing:0;text-transform:none}
+.placeholder{opacity:.5}
+
+.bike-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:12px}
+.bike-card{min-height:330px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(145deg,#151515,#0e0e0e);position:relative;overflow:hidden}
+.bike-card:before{content:"190";position:absolute;right:-15px;top:-45px;font-size:230px;font-weight:1000;line-height:1;color:#fff;opacity:.025}
 
-            <nav class="kh-nav">
-                <a href="index.html" class="active">Home</a>
-                <a href="matej.html">Matěj</a>
-                <a href="results.html">Results</a>
-                <a href="bike.html">Bike</a>
-                <a href="team.html">Team</a>
-                <a href="contact.html">Contact</a>
-            </nav>
+.specs{border:1px solid var(--line)}
+.spec{min-height:65px;padding:15px 18px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);background:var(--panel)}
+.spec:last-child{border-bottom:0}
+.spec span:first-child{color:#777;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.spec span:last-child{font-size:13px;font-weight:900;text-align:right;text-transform:uppercase}
 
-        </div>
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact-card{min-height:220px}
+.contact-card h3{margin-bottom:12px}
 
-    </header>
+.site-footer{border-top:1px solid var(--line);padding:24px 0;color:#666;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
 
 
-    <!-- HERO -->
+@media(max-width:950px){
 
-    <main>
+    .container{
+        width:min(900px,calc(100% - 36px))
+    }
 
-        <section class="kh-hero">
+    .nav-links{
+        gap:18px
+    }
 
-            <div class="kh-bg-number">30</div>
+    .hero-inner{
+        grid-template-columns:1fr;
+        gap:50px;
+        align-items:start
+    }
 
-            <div class="kh-hero-content">
+    .hero-stat{
+        max-width:330px
+    }
+
+    .home-links,
+    .info-grid{
+        grid-template-columns:1fr 1fr
+    }
 
-                <p class="kh-kicker">
-                    CZECH MOTOGYMKHANA
-                </p>
+    .result-card{
+        grid-template-columns:80px 1fr 1fr 1fr
+    }
 
-                <h1 class="kh-title">
-                    MATĚJ
-                    <span>KERL</span>
-                </h1>
-
-                <div class="kh-divider"></div>
-
-                <p class="kh-description">
-                    Motorcycle racer competing in
-                    <strong>MotoGymkhana</strong>
-                    with the
-                    <strong>IMR Corsa 190RR.</strong>
-                </p>
-
-                <div class="kh-buttons">
-
-                    <a href="results.html"
-                       class="kh-button kh-button-red">
-                        VIEW RESULTS
-                    </a>
-
-                    <a href="matej.html"
-                       class="kh-button kh-button-outline">
-                        RIDER PROFILE
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- STATS -->
-
-            <div class="kh-stats">
-
-                <div class="kh-stat">
-
-                    <span class="kh-stat-label">
-                        GP8 BEST TIME
-                    </span>
-
-                    <span class="kh-stat-value red">
-                        30.8 SEC
-                    </span>
-
-                    <span class="kh-stat-small">
-                        MOTOGYMKHANA GP8 · 2026
-                    </span>
-
-                </div>
-
-
-                <div class="kh-stat">
-
-                    <span class="kh-stat-label">
-                        LATEST RESULT
-                    </span>
-
-                    <span class="kh-stat-value">
-                        24TH
-                    </span>
-
-                    <span class="kh-stat-small">
-                        2026MGYMFUNOLC · ROUND 5
-                    </span>
-
-                </div>
-
-
-                <div class="kh-stat">
-
-                    <span class="kh-stat-label">
-                        CURRENT MACHINE
-                    </span>
-
-                    <span class="kh-stat-value">
-                        IMR CORSA 190RR
-                    </span>
-
-                    <span class="kh-stat-small">
-                        RACE BIKE
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- QUICK LINKS -->
-
-        <section class="kh-strip">
-
-            <a href="matej.html" class="kh-strip-link">
-
-                <span class="kh-strip-number">01</span>
-
-                <div class="kh-strip-info">
-                    <small>RIDER</small>
-                    <strong>MATĚJ KERL</strong>
-                </div>
-
-                <span class="kh-strip-arrow">→</span>
-
-            </a>
-
-
-            <a href="results.html" class="kh-strip-link">
-
-                <span class="kh-strip-number">02</span>
-
-                <div class="kh-strip-info">
-                    <small>RACING</small>
-                    <strong>RESULTS</strong>
-                </div>
-
-                <span class="kh-strip-arrow">→</span>
-
-            </a>
-
-
-            <a href="bike.html" class="kh-strip-link">
-
-                <span class="kh-strip-number">03</span>
-
-                <div class="kh-strip-info">
-                    <small>MACHINE</small>
-                    <strong>IMR CORSA 190RR</strong>
-                </div>
-
-                <span class="kh-strip-arrow">→</span>
-
-            </a>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-
-    <footer class="kh-footer">
-
-        <div>
-            <strong>KEHI MOTORSPORT</strong>
-            <span> · Motorcycle Racing · Czech Republic</span>
-        </div>
-
-        <div>
-            Matěj Kerl · MotoGymkhana
-        </div>
-
-    </footer>
-
-</body>
-</html>
+    .result-card .result-meta:nth-of-type(4){
+        display:none
+    }
+
+    .bike-layout,
+    .contact-grid{
+        grid-template-columns:1fr
+    }
+}
+
+
+@media(max-width:650px){
+
+    .container{
+        width:calc(100% - 28px)
+    }
+
+    .site-header{
+        height:auto
+    }
+
+    .nav{
+        padding:16px 0;
+        align-items:flex-start;
+        flex-direction:column;
+        gap:14px
+    }
+
+    .nav-links{
+        gap:9px 15px;
+        flex-wrap:wrap
+    }
+
+    .nav-links a{
+        font-size:10px
+    }
+
+    .nav-links a.active:after{
+        bottom:-6px
+    }
+
+    .hero{
+        min-height:auto
+    }
+
+    .hero-inner{
+        padding:70px 0 75px
+    }
+
+    .hero:after{
+        font-size:40vw
+    }
+
+    .hero h1{
+        font-size:clamp(52px,18vw,90px)
+    }
+
+    .hero-stat .big{
+        font-size:58px
+    }
+
+    .section{
+        padding:65px 0
+    }
+
+    .section-head{
+        display:block
+    }
+
+    .section-head .eyebrow{
+        margin-bottom:10px
+    }
+
+    .stats{
+        grid-template-columns:1fr
+    }
+
+    .stat{
+        border-right:0;
+        border-bottom:1px solid var(--line)
+    }
+
+    .stat:last-child{
+        border-bottom:0
+    }
+
+    .home-links,
+    .info-grid{
+        grid-template-columns:1fr
+    }
+
+    .page-hero{
+        padding:70px 0 60px
+    }
+
+    .page-hero h1{
+        font-size:clamp(48px,15vw,80px)
+    }
+
+    .result-card{
+        grid-template-columns:1fr 1fr;
+        gap:16px
+    }
+
+    .result-number,
+    .result-card>div:nth-child(2){
+        grid-column:1/-1
+    }
+
+    .result-card .result-meta:nth-of-type(4){
+        display:block
+    }
+
+    .result-card .result-meta{
+        min-width:0
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        gap:8px
+    }
+}
 
 
 
