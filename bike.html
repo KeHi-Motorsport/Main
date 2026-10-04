@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>IMR Corsa 190RR | KeHi Motorsport</title>
+    <title>Bikes | KeHi Motorsport</title>
 
     <style>
         * {
@@ -108,7 +108,7 @@
         }
 
         .hero-description {
-            max-width: 650px;
+            max-width: 700px;
             color: #999;
             font-size: 17px;
             margin-top: 25px;
@@ -240,6 +240,59 @@
             color: #888;
         }
 
+        /* BIKE DIVIDER */
+
+        .bike-divider {
+            padding: 35px 0;
+            background: #050505;
+            border-bottom: 1px solid #252525;
+        }
+
+        .bike-divider-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .bike-divider h2 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .bike-number {
+            color: #e10600;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        /* STATUS */
+
+        .status {
+            display: inline-block;
+            padding: 8px 14px;
+            margin-top: 15px;
+            border: 1px solid #333;
+            background: #101010;
+            color: #aaa;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .status.active {
+            color: #fff;
+            border-color: #e10600;
+        }
+
+        .status.retired {
+            color: #777;
+        }
+
         /* BUTTON */
 
         .button {
@@ -291,6 +344,11 @@
 
             .setup-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .bike-divider-inner {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
 
@@ -351,30 +409,92 @@
 
 <main>
 
-<!-- HERO -->
+<!-- ========================================================= -->
+<!-- PAGE HERO -->
+<!-- ========================================================= -->
 
 <section class="hero">
+
     <div class="container">
 
-        <p class="eyebrow">KeHi Motorsport • Race Machine</p>
+        <p class="eyebrow">
+            KeHi Motorsport • Garage
+        </p>
 
         <h1>
-            IMR
-            <span>190RR</span>
+            OUR
+            <span>BIKES</span>
         </h1>
 
         <p class="hero-description">
-            The current race bike of Matěj Kerl, built around a compact
-            190 cc Zongshen engine and used for MotoGymkhana and track riding.
+            The motorcycles that have been part of Matěj Kerl's
+            MotoGymkhana development, racing and competition journey.
         </p>
 
     </div>
+
 </section>
 
 
-<!-- BIKE PHOTO -->
+<!-- ========================================================= -->
+<!-- IMR 190RR -->
+<!-- ========================================================= -->
+
+<div class="bike-divider">
+
+    <div class="container bike-divider-inner">
+
+        <div>
+
+            <div class="bike-number">
+                01 • Retired Race Bike
+            </div>
+
+            <h2>
+                IMR Corsa 190RR
+            </h2>
+
+        </div>
+
+        <div class="status retired">
+            Retired
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- IMR INTRO -->
 
 <section>
+
+    <div class="container">
+
+        <p class="eyebrow">
+            KeHi Motorsport • Retired Bike
+        </p>
+
+        <h2>
+            IMR
+            <span style="color:#e10600;">190RR</span>
+        </h2>
+
+        <p class="hero-description">
+            The former race bike of Matěj Kerl, built around a compact
+            190 cc Zongshen engine and previously used for MotoGymkhana
+            and track riding.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- IMR PHOTO -->
+
+<section>
+
     <div class="container">
 
         <img
@@ -384,61 +504,77 @@
         >
 
     </div>
+
 </section>
 
 
-<!-- ABOUT THE BIKE -->
+<!-- IMR ABOUT -->
 
 <section>
+
     <div class="container intro">
 
         <div>
 
-            <p class="eyebrow">THE MACHINE</p>
+            <p class="eyebrow">
+                THE MACHINE
+            </p>
 
-            <h2>IMR Corsa 190RR</h2>
+            <h2>
+                IMR Corsa 190RR
+            </h2>
 
             <p>
                 The IMR Corsa 190RR is a lightweight pit-bike based race
-                machine used by Matěj Kerl for MotoGymkhana and track riding.
+                machine that was used by Matěj Kerl for MotoGymkhana
+                and track riding.
             </p>
 
             <p>
-                The compact chassis and relatively small dimensions make the
-                bike well suited to tight technical courses where rapid
-                direction changes and precise control are important.
+                The compact chassis and relatively small dimensions made
+                the bike well suited to tight technical courses where
+                rapid direction changes and precise control are important.
             </p>
 
             <p>
-                The bike is focused on competition rather than road use.
+                The IMR has now been retired from active competition
+                following its time as Matěj's race machine.
             </p>
 
         </div>
 
         <div class="race-box">
 
-            <strong>Race Bike</strong>
+            <strong>
+                Retired
+            </strong>
 
             <p>
+                Former Race Bike<br>
                 MotoGymkhana<br>
-                Track Riding<br>
-                Competition
+                Track Riding
             </p>
 
         </div>
 
     </div>
+
 </section>
 
 
-<!-- ENGINE -->
+<!-- IMR ENGINE -->
 
 <section>
+
     <div class="container">
 
-        <p class="eyebrow">POWER UNIT</p>
+        <p class="eyebrow">
+            POWER UNIT
+        </p>
 
-        <h2>Engine</h2>
+        <h2>
+            Engine
+        </h2>
 
         <div class="spec-grid">
 
@@ -490,17 +626,23 @@
         </div>
 
     </div>
+
 </section>
 
 
-<!-- CHASSIS -->
+<!-- IMR CHASSIS -->
 
 <section>
+
     <div class="container">
 
-        <p class="eyebrow">CHASSIS</p>
+        <p class="eyebrow">
+            CHASSIS
+        </p>
 
-        <h2>Hardware</h2>
+        <h2>
+            Hardware
+        </h2>
 
         <div class="spec-grid">
 
@@ -530,35 +672,45 @@
             </div>
 
             <div class="spec">
-                <span class="spec-value">~60kg without wheels</span>
-                <span class="spec-label">Race chassis</span>
+                <span class="spec-value">~60 kg</span>
+                <span class="spec-label">Chassis without wheels</span>
             </div>
 
         </div>
 
     </div>
+
 </section>
 
 
-<!-- CURRENT BIKE -->
+<!-- IMR FORMER CONFIGURATION -->
 
 <section>
+
     <div class="container">
 
-        <p class="eyebrow">MATĚJ KERL • CURRENT BIKE</p>
+        <p class="eyebrow">
+            MATĚJ KERL • RETIRED BIKE
+        </p>
 
-        <h2>Current Configuration</h2>
+        <h2>
+            Former Configuration
+        </h2>
 
         <div class="setup-grid">
 
             <div class="setup-card">
 
-                <div class="red">Tyres</div>
+                <div class="red">
+                    Tyres
+                </div>
 
-                <h3>Mitas S Racer 2.0</h3>
+                <h3>
+                    Mitas S Racer 2.0
+                </h3>
 
                 <p>
-                    Current tyre choice for the race bike.
+                    Tyre setup used during the bike's active racing period.
                 </p>
 
             </div>
@@ -566,12 +718,16 @@
 
             <div class="setup-card">
 
-                <div class="red">Discipline</div>
+                <div class="red">
+                    Discipline
+                </div>
 
-                <h3>MotoGymkhana</h3>
+                <h3>
+                    MotoGymkhana
+                </h3>
 
                 <p>
-                    Built around tight courses, fast transitions,
+                    Used for tight courses, fast transitions,
                     braking and precise bike control.
                 </p>
 
@@ -580,9 +736,13 @@
 
             <div class="setup-card">
 
-                <div class="red">Rider</div>
+                <div class="red">
+                    Rider
+                </div>
 
-                <h3>Matěj Kerl</h3>
+                <h3>
+                    Matěj Kerl
+                </h3>
 
                 <p>
                     KeHi Motorsport rider and MotoGymkhana competitor.
@@ -593,20 +753,27 @@
         </div>
 
     </div>
+
 </section>
 
 
-<!-- RESULTS -->
+<!-- IMR RESULTS -->
 
 <section>
+
     <div class="container">
 
-        <p class="eyebrow">COMPETITION</p>
+        <p class="eyebrow">
+            COMPETITION
+        </p>
 
-        <h2>How It Performs</h2>
+        <h2>
+            Race History
+        </h2>
 
         <p style="color:#888; max-width:650px; margin-bottom:25px;">
-            See the results achieved with the IMR Corsa 190RR in competition.
+            The IMR Corsa 190RR formed part of Matěj Kerl's development
+            as a MotoGymkhana rider before being retired from active use.
         </p>
 
         <a href="results.html" class="button">
@@ -614,6 +781,371 @@
         </a>
 
     </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- FREERIDE E -->
+<!-- ========================================================= -->
+
+<div class="bike-divider">
+
+    <div class="container bike-divider-inner">
+
+        <div>
+
+            <div class="bike-number">
+                02 • Active Electric Bike
+            </div>
+
+            <h2>
+                KTM Freeride E "Tramvaj"
+            </h2>
+
+        </div>
+
+        <div class="status active">
+            Active
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FREERIDE INTRO -->
+
+<section>
+
+    <div class="container">
+
+        <p class="eyebrow">
+            KeHi Motorsport • Active Bike
+        </p>
+
+        <h2>
+            KTM
+            <span style="color:#e10600;">FREERIDE E</span>
+        </h2>
+
+        <p class="hero-description">
+            A 2015 KTM Freeride E used by Matěj Kerl for MotoGymkhana
+            training and competition. Nicknamed "Tramvaj".
+        </p>
+
+        <div class="status active">
+            Current Bike
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FREERIDE PHOTO -->
+
+<section>
+
+    <div class="container">
+
+        <img
+            src="freeride.jpeg"
+            alt="2015 KTM Freeride E"
+            class="bike-image"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- FREERIDE ABOUT -->
+
+<section>
+
+    <div class="container intro">
+
+        <div>
+
+            <p class="eyebrow">
+                THE MACHINE
+            </p>
+
+            <h2>
+                Freeride E
+            </h2>
+
+            <p>
+                The 2015 KTM Freeride E is Matěj Kerl's current
+                electric MotoGymkhana bike, nicknamed "Tramvaj".
+            </p>
+
+            <p>
+                The electric drivetrain delivers immediate torque,
+                making the bike particularly effective on tight
+                technical courses where rapid acceleration and
+                precise control are important.
+            </p>
+
+            <p>
+                The bike is being developed around Matěj's
+                MotoGymkhana riding style and competition goals.
+            </p>
+
+        </div>
+
+        <div class="race-box">
+
+            <strong>
+                Active Bike
+            </strong>
+
+            <p>
+                MotoGymkhana<br>
+                Training<br>
+                Competition
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FREERIDE POWER -->
+
+<section>
+
+    <div class="container">
+
+        <p class="eyebrow">
+            POWER UNIT
+        </p>
+
+        <h2>
+            Electric Drive
+        </h2>
+
+        <div class="spec-grid">
+
+            <div class="spec">
+                <span class="spec-value">11 kW</span>
+                <span class="spec-label">Power</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-value">Electric</span>
+                <span class="spec-label">Powertrain</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-value">Instant</span>
+                <span class="spec-label">Torque delivery</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-value">Battery</span>
+                <span class="spec-label">Energy storage</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-value">No Clutch</span>
+                <span class="spec-label">Electric drive</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-value">2015</span>
+                <span class="spec-label">Model year</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FREERIDE CHASSIS -->
+
+<section>
+
+    <div class="container">
+
+        <p class="eyebrow">
+            CHASSIS
+        </p>
+
+        <h2>
+            Hardware
+        </h2>
+
+        <div class="spec-grid">
+
+            <div class="spec">
+                <span class="spec-value">Enduro</span>
+                <span class="spec-label">Chassis design</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-value">Duke 690</span>
+                <span class="spec-label">Front forks</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-value">Hydraulic</span>
+                <span class="spec-label">Disc brakes</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-value">Electric</span>
+                <span class="spec-label">Drive system</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-value">Lightweight</span>
+                <span class="spec-label">Construction</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-value">MotoGymkhana</span>
+                <span class="spec-label">Primary use</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FREERIDE CURRENT CONFIGURATION -->
+
+<section>
+
+    <div class="container">
+
+        <p class="eyebrow">
+            MATĚJ KERL • CURRENT BIKE
+        </p>
+
+        <h2>
+            Current Configuration
+        </h2>
+
+        <div class="setup-grid">
+
+            <div class="setup-card">
+
+                <div class="red">
+                    Bike
+                </div>
+
+                <h3>
+                    KTM Freeride E
+                </h3>
+
+                <p>
+                    2015 electric Freeride E used as Matěj Kerl's
+                    current MotoGymkhana bike.
+                </p>
+
+            </div>
+
+
+            <div class="setup-card">
+
+                <div class="red">
+                    Suspension
+                </div>
+
+                <h3>
+                    Duke 690 Forks
+                </h3>
+
+                <p>
+                    Front-end upgraded with forks from the
+                    KTM Duke 690.
+                </p>
+
+            </div>
+
+
+            <div class="setup-card">
+
+                <div class="red">
+                    Discipline
+                </div>
+
+                <h3>
+                    MotoGymkhana
+                </h3>
+
+                <p>
+                    Built around tight courses, rapid transitions,
+                    braking and precise bike control.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FREERIDE DEVELOPMENT -->
+
+<section>
+
+    <div class="container">
+
+        <p class="eyebrow">
+            KEHI MOTORSPORT • DEVELOPMENT
+        </p>
+
+        <h2>
+            Built For The Rider
+        </h2>
+
+        <p style="color:#888; max-width:650px; margin-bottom:25px;">
+            The Freeride E is being developed as a dedicated MotoGymkhana
+            machine, with further setup and battery work planned around
+            Matěj Kerl's riding style and competition requirements.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- RESULTS -->
+
+<section>
+
+    <div class="container">
+
+        <p class="eyebrow">
+            COMPETITION
+        </p>
+
+        <h2>
+            How It Performs
+        </h2>
+
+        <p style="color:#888; max-width:650px; margin-bottom:25px;">
+            Track the results and progress achieved with the Freeride E
+            in MotoGymkhana.
+        </p>
+
+        <a href="results.html" class="button">
+            View Results →
+        </a>
+
+    </div>
+
 </section>
 
 </main>
@@ -622,9 +1154,11 @@
 <!-- FOOTER -->
 
 <footer>
+
     <div class="container">
         © 2026 KeHi Motorsport
     </div>
+
 </footer>
 
 </body>
